@@ -1,0 +1,30 @@
+.contextLogo {
+    display: inline;
+    vertical-align: top;
+    width: 32px;
+    height: 32px;
+}
+
+.statusLine {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.status {
+    display: flex;
+    align-items: center;
+}
+
+.committer {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.commit_avatar {
+    display:inline;
+    vertical-align: middle;
+    width: 32px;
+    height: 32px;
+}

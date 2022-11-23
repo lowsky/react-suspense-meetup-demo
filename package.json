@@ -1,0 +1,60 @@
+{
+  "name": "react-suspense-meetup-demo",
+  "version": "0.1.0",
+  "description": "A Demo showing an overview of the build states of GitHub branches page using lazy loading.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lowsky/react-suspense-meetup-demo.git"
+  },
+  "keywords": [
+    "react",
+    "suspense",
+    "react suspense",
+    "dashboard",
+    "github"
+  ],
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "author": "Robert Hostlowsky",
+  "license": "APACHE-2.0",
+  "bugs": {
+    "url": "https://github.com/lowsky/react-suspense-meetup-demo/issues"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "2.3.7",
+    "@emotion/react": "11.10.5",
+    "@emotion/styled": "11.10.5",
+    "@octokit/rest": "19.0.5",
+    "framer-motion": "7.6.6",
+    "hitchcock": "0.5.0",
+    "next": "13.0.4",
+    "react": "18.2.0",
+    "simple-cache-provider": "0.10.0"
+  },
+  "devDependencies": {
+    "@chakra-ui/icons": "2.0.11",
+    "@chakra-ui/system": "2.3.1",
+    "@fortawesome/fontawesome-svg-core": "6.2.0",
+    "@fortawesome/free-brands-svg-icons": "6.2.0",
+    "@fortawesome/free-solid-svg-icons": "6.2.0",
+    "@fortawesome/react-fontawesome": "0.2.0",
+    "@octokit/types": "8.0.0",
+    "@types/node": "18.11.9",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.9",
+    "csstype": "3.1.1",
+    "eslint": "8.27.0",
+    "eslint-config-next": "13.0.4",
+    "next": "13.0.4",
+    "prettier": "2.7.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.3"
+  },
+  "packageManager": "yarn@3.2.4"
+}
