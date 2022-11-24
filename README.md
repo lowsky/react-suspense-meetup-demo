@@ -3,6 +3,8 @@
 -   Next.js
 -   ChakraUI
 -   React
+-   React.Cache
+-   React.Suspend
 -   Typescript
 
 ## Purpose
@@ -13,6 +15,9 @@ List the `(feature) branches` of a GitHub repository with its
 -   last commit's linked PR
 -   last commit's commit message
 
+Side by side comparison and playground showing loading indicators [hitchcock](https://github.com/pomber/hitchcock#readme) by [@pombo](https://github.com/pomber), based on work of Jared Palmer
+
+![screenshot.png](public/screenshot-side-to-side)
 
 ## Getting started
 
@@ -51,4 +56,4 @@ GITHUB_TOKEN=XXX
 
 ## License
 
-Licensed under the Apache License 2.0, Copyright ©️ 2018 Robert Hostlowsky. See [LICENSE](LICENSE) for more information.
+Licensed under the Apache License 2.0, Copyright ©️ 2022 Robert Hostlowsky. See [LICENSE](LICENSE) for more information.
