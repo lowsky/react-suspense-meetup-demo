@@ -17,7 +17,7 @@ List the `(feature) branches` of a GitHub repository with its
 
 Side by side comparison and playground showing loading indicators [hitchcock](https://github.com/pomber/hitchcock#readme) by [@pombo](https://github.com/pomber), based on work of Jared Palmer
 
-![screenshot.png](public/screenshot-side-to-side)
+![screenshot.png](public/screenshot-side-to-side.png)
 
 ## Getting started
 
