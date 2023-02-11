@@ -30,7 +30,7 @@
     "@emotion/react": "11.10.5",
     "@emotion/styled": "11.10.5",
     "@octokit/rest": "19.0.7",
-    "framer-motion": "8.5.5",
+    "framer-motion": "9.0.2",
     "hitchcock": "0.5.0",
     "next": "13.1.6",
     "react": "18.2.0",
