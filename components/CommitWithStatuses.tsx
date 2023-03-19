@@ -12,20 +12,17 @@ export interface CommitWithStatusProps {
 }
 
 const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
-    // @ts-ignore
     const { author, sha, date = '-?-', message = '-?-', statuses, status } = commit;
 
-    const githubCommit = `https://github.com/lowsky/react-suspense-meetup-demo/tree/${sha}`; // not correct
+    const githubCommit: string = `https://github.com/lowsky/react-suspense-meetup-demo/tree/${sha}`; // not correct
 
     let mainMessage = message?.split('\n\n', 1);
 
     return (
         <>
-            <div>
-                <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow">
-                    <strong>{mainMessage}</strong>
-                </Link>
-            </div>
+            <Link href={githubCommit} rel="noopener noreferrer nofollow" className={styles.status} isExternal>
+                <strong>{mainMessage}</strong>
+            </Link>
 
             <div className={styles.status}>
                 <i>{date}</i>
