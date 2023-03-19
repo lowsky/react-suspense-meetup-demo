@@ -1,3 +1,5 @@
+'use client'; // this directive should be at top of the file, before any imports.
+
 import React from 'react';
 import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react';
 
@@ -13,7 +15,9 @@ export default function Shortcuts() {
 
             <UnorderedList>
                 <ListItem>
-                    <InternalLink href={'/restful/lowsky/react-suspense-meetup-demo'}>lowsky/react-suspense-meetup-demo</InternalLink>
+                    <InternalLink href={'/restful/lowsky/react-suspense-meetup-demo'}>
+                        lowsky/react-suspense-meetup-demo
+                    </InternalLink>
                 </ListItem>
                 <ListItem>
                     <InternalLink href={'/restful/lowsky/spotify-graphql-server'}>

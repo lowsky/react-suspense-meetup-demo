@@ -1,3 +1,5 @@
+'use client'; // this directive should be at top of the file, before any imports.
+
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Alert, AlertIcon } from '@chakra-ui/react';
@@ -22,9 +24,7 @@ export default function RestfulPage() {
         }
         return (
             <>
-                <InternalLink href={'/restful'}>
-                    back to shortcut list
-                </InternalLink>
+                <InternalLink href={'/restful'}>back to shortcut list</InternalLink>
 
                 <RestfulMain userName={userName} repoName={repoName} />
             </>
