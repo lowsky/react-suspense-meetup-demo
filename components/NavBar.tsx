@@ -65,17 +65,15 @@ const DesktopNav = () => {
     const color = useColorModeValue('gray.800', 'white');
     return (
         <Stack direction="row" spacing={4} align="center">
-            {NAV_ITEMS.map(({ href, label }) => {
-                return (
-                    <Popover trigger="hover" placement="bottom-start" key={label}>
-                        <PopoverTrigger>
-                            <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color }}>
-                                {label}
-                            </InternalLink>
-                        </PopoverTrigger>
-                    </Popover>
-                );
-            })}
+            {NAV_ITEMS.map(({ href, label }) => (
+                <Popover trigger="hover" placement="bottom-start" key={label}>
+                    <PopoverTrigger>
+                        <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color }}>
+                            {label}
+                        </InternalLink>
+                    </PopoverTrigger>
+                </Popover>
+            ))}
         </Stack>
     );
 };

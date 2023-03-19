@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 
 import InternalLink from '../../components/InternalLink';
 import { LinkList } from '../../components/LinkList';

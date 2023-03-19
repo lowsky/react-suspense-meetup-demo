@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { Link } from '@chakra-ui/react';
 
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import InternalLink from "../../../components/InternalLink";
+import InternalLink from '../../../components/InternalLink';
 
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
 

@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 import { ContentLoadingFallback } from '../../../components/ContentLoadingFallback';
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
-import InternalLink from "../../../components/InternalLink";
+import InternalLink from '../../../components/InternalLink';
 
 import UserRepoWaterfall from '../../../container/LazyUserRepo';
 

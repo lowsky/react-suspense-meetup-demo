@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Heading, UnorderedList, ListItem } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 
 import InternalLink from '../../components/InternalLink';
 import { LinkList } from '../../components/LinkList';
@@ -14,7 +14,7 @@ export default function Shortcuts() {
                 Showing results incrementally (waterfall) as soon as they got loaded. (modern Promise-based way)
             </Box>
 
-            <LinkList rootPath="/waterfall"></LinkList>
+            <LinkList rootPath="/waterfall" />
         </div>
     );
 }

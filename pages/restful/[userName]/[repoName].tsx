@@ -5,15 +5,15 @@ import { useRouter } from 'next/router';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
-import InternalLink from "../../../components/InternalLink";
+import InternalLink from '../../../components/InternalLink';
 
 import UserRepo from '../../../container/UserRepo';
 import {
     Branches,
     fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
-    User
-} from "../../../restinpeace/github";
+    User,
+} from '../../../restinpeace/github';
 
 export default function RestfulPage() {
     const router = useRouter();

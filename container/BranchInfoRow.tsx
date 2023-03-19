@@ -35,7 +35,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, userName, repoNam
                 </Icon>
             </Td>
             <Td>
-                <Suspense fallback={<Spinner />}>
+                <Suspense fallback={<Spinner size={8} />}>
                     {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
                         <PullRequestInfo key={idx} pullRequest={pr!} />
                     ))}
