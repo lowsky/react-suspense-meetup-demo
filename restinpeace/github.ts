@@ -3,10 +3,10 @@ import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMetho
 
 import { GithubCommit, GithubStatus } from './types';
 
-const { GITHUB_TOKEN } = process.env;
+const NEXT_PUBLIC_GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 
 export const octo = new Octokit({
-    GITHUB_TOKEN,
+    auth: NEXT_PUBLIC_GITHUB_TOKEN,
 });
 
 export const getCommitsForRepo = async (
