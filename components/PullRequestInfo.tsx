@@ -30,7 +30,7 @@ export default function PullRequestInfo({ pullRequest, userName, repoName, sha }
         pullRequest ?? getPR.read(null, { userName, repoName, sha })?.find?.(Boolean) ?? {};
 
     return (
-        <VStack>
+        <VStack width="6em">
             <Link href={html_url ?? url ?? ''} title={title ?? ''} rel="noopener noreferrer nofollow">
                 #{number}
             </Link>

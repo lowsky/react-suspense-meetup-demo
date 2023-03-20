@@ -1,18 +1,28 @@
 import React from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { GithubCommit } from '../restinpeace/types';
+import { GithubCommit, Maybe } from '../restinpeace/types';
 import { CommitterInfo } from './CommitterInfo';
+import { Spinner } from './Spinner';
 
 import styles from './CommitWithStatuses.module.css';
 import { CommitStatuses } from './CommitStatuses';
 
 export interface CommitWithStatusProps {
     commit?: GithubCommit;
+    userName?: Maybe<string>;
+    repoName?: Maybe<string>;
 }
 
-const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
-    const { author, sha, date = '-?-', message = '-?-', statuses, status } = commit;
+const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {}, userName, repoName }) => {
+    const {
+        author,
+        sha,
+        date = '-?-',
+        message = '-?-',
+        statuses,
+        status,
+    } = commit;
 
     const githubCommit = `https://github.com/${userName}/${repoName}/tree/${sha}`;
 
@@ -20,9 +30,11 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
 
     return (
         <>
-            <Link href={githubCommit} rel="noopener noreferrer nofollow" className={styles.status} isExternal>
-                <strong>{mainMessage}</strong>
-            </Link>
+            <div>
+                <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow" isExternal>
+                    <strong>{mainMessage}</strong>
+                </Link>
+            </div>
 
             <div className={styles.status}>
                 <i>{date}</i>
@@ -35,3 +47,5 @@ const CommitWithStatus: React.FC<CommitWithStatusProps> = ({ commit = {} }) => {
 };
 
 export default CommitWithStatus;
+
+export const CommitWithStatusesSkeleton = () => <Spinner size={6} />;

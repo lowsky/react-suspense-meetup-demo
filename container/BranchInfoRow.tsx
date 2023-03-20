@@ -2,12 +2,12 @@ import React, { Suspense } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
-import { Icon, Link, Td, Tr } from '@chakra-ui/react';
+import { Icon, Link, Td, Tr, VStack } from '@chakra-ui/react';
 
 import { GithubBranch, Maybe } from '../restinpeace/types';
 import { Spinner } from '../components/Spinner';
 import PullRequestInfo from '../components/PullRequestInfo';
-import CommitWithStatuses from '../components/CommitWithStatuses';
+import CommitWithStatuses, { CommitWithStatusesSkeleton } from '../components/CommitWithStatuses';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
@@ -35,7 +35,12 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, userName, repoNam
                 </Icon>
             </Td>
             <Td>
-                <Suspense fallback={<Spinner size={8} />}>
+                <Suspense
+                    fallback={
+                        <VStack width="6em">
+                            <Spinner size={8} />
+                        </VStack>
+                    }>
                     {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
                         <PullRequestInfo key={idx} pullRequest={pr!} />
                     ))}
@@ -43,9 +48,27 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, userName, repoNam
                 </Suspense>
             </Td>
 
-            <Td>{lastCommit && <CommitWithStatuses commit={lastCommit} />}</Td>
+            <Td>
+                <Suspense fallback={<CommitWithStatusesSkeleton />}>
+                    {lastCommit && <CommitWithStatuses commit={lastCommit} userName={userName} repoName={repoName} />}
+                </Suspense>
+            </Td>
         </Tr>
     );
 };
 
 export default BranchInfoRow;
+
+export const SkeletonRow = () => (
+    <Tr>
+        <Td>
+            <Spinner />
+        </Td>
+        <Td>
+            <Spinner />
+        </Td>
+        <Td>
+            <Spinner />
+        </Td>
+    </Tr>
+);

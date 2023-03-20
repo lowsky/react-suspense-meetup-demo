@@ -1,10 +1,9 @@
 import React, { Suspense } from 'react';
-import { Table, Tbody, Td, Th, Thead, Tr } from '@chakra-ui/react';
+import { Table, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
 
 import { GithubRepo } from '../restinpeace/types';
 
-import BranchInfoRow from './BranchInfoRow';
-import { Spinner } from '../components/Spinner';
+import BranchInfoRow, { SkeletonRow } from './BranchInfoRow';
 
 export interface BranchesTableProps {
     repo?: GithubRepo;
@@ -24,34 +23,19 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
                 </Tr>
             </Thead>
             <Tbody>
-                {(branches || []).map((branch, idx) => {
-                    return (
-                        branch && (
-                            <Suspense
-                                fallback={
-                                    <Tr>
-                                        <Td>
-                                            <Spinner />
-                                        </Td>
-                                        <Td>
-                                            <Spinner />
-                                        </Td>
-                                        <Td>
-                                            <Spinner />
-                                        </Td>
-                                    </Tr>
-                                }>
-                                <BranchInfoRow
-                                    key={idx}
-                                    branch={branch}
-                                    userName={owner?.login}
-                                    repoName={name}
-                                    sha={branch.lastCommit?.sha}
-                                />
-                            </Suspense>
-                        )
-                    );
-                })}
+                {(branches ?? [])
+                    .filter((b) => Boolean(b))
+                    .map((branch, idx) => (
+                        <Suspense key={idx} fallback={<SkeletonRow />}>
+                            <BranchInfoRow
+                                key={idx}
+                                branch={branch!}
+                                userName={owner?.login}
+                                repoName={name}
+                                sha={branch!.lastCommit?.sha}
+                            />
+                        </Suspense>
+                    ))}
             </Tbody>
         </Table>
     );
