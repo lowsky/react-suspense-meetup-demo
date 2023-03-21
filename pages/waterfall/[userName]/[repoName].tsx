@@ -18,9 +18,7 @@ export default function WaterfallPage() {
         }
         return (
             <>
-                <InternalLink href={'/waterfall'}>
-                    back to shortcut list
-                </InternalLink>
+                <InternalLink href={'/waterfall'}>back to shortcut list</InternalLink>
 
                 <WaterfallMain userName={userName} repoName={repoName} />
             </>
