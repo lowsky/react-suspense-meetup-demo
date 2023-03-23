@@ -21,7 +21,7 @@ export type PullRequestData = {
 
 const getPR = createResource(
     ({ userName, repoName, sha }) => fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha),
-    ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha}`
+    ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
 export default function PullRequestInfo({ pullRequest, userName, repoName, sha }: PullRequestInfoProps) {
