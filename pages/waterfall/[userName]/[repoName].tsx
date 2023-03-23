@@ -24,7 +24,7 @@ export function WaterfallMain({ userName, repoName }) {
     return (
         <RichErrorBoundary>
             <Suspense fallback={<ContentLoadingFallback />}>
-                <UserRepoWaterfall repoName={repoName} userName={userName} />
+                {userName && repoName && <UserRepoWaterfall repoName={repoName} userName={userName} />}
             </Suspense>
         </RichErrorBoundary>
     );

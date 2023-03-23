@@ -3,7 +3,7 @@ import { Link, VStack } from '@chakra-ui/react';
 
 import { Maybe } from '../restinpeace/types';
 import { fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
-import { createResource } from '../restinpeace/reactCache';
+import { createResource } from '../cache/reactCache';
 
 export type PullRequestInfoProps = {
     pullRequest?: PullRequestData;

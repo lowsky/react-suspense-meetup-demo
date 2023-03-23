@@ -3,14 +3,14 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 
-import { Director } from 'hitchcock';
+import CacheInspector from '../cache/CacheInspector';
 
 export default function DirectorLayout({ children }) {
     return (
         <Box p="5">
             {!(typeof window === 'undefined') && (
                 // inject the hitchcock debug-tool for the async fetching
-                <Director>{children}</Director>
+                <CacheInspector>{children}</CacheInspector>
             )}
             {typeof window === 'undefined' && (
                 // inject the hitchcock debug-tool for the async fetching

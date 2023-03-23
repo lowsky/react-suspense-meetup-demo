@@ -25,7 +25,7 @@ export function WaitForAll({ userName, repoName }) {
     return (
         <RichErrorBoundary>
             <Suspense fallback={<ContentLoadingFallback />}>
-                <UserRepoFetchAll repoName={repoName} userName={userName} />
+                {userName && repoName && <UserRepoFetchAll repoName={repoName} userName={userName} />}
             </Suspense>
         </RichErrorBoundary>
     );
