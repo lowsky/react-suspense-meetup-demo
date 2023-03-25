@@ -8,7 +8,7 @@ import Repo from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from './BranchesTable';
 
-import { cache, createResource } from '../restinpeace/reactCache';
+import { cache, createResource } from '../cache/reactCache';
 
 export type UserRepoProps = Readonly<{
     userName: string;

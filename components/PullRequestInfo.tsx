@@ -3,7 +3,7 @@ import { Link, VStack } from '@chakra-ui/react';
 
 import { Maybe } from '../restinpeace/types';
 import { fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
-import { createResource } from '../restinpeace/reactCache';
+import { createResource } from '../cache/reactCache';
 
 export type PullRequestInfoProps = {
     pullRequest?: PullRequestData;
@@ -21,7 +21,7 @@ export type PullRequestData = {
 
 const getPR = createResource(
     ({ userName, repoName, sha }) => fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha),
-    ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha}`
+    ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
 export default function PullRequestInfo({ pullRequest, userName, repoName, sha }: PullRequestInfoProps) {

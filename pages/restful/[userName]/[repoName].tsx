@@ -4,7 +4,6 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 
-import { WarningMissingURLParams } from '../../../container/NavBarWithRouting';
 import InternalLink from '../../../components/InternalLink';
 
 import UserRepo from '../../../container/UserRepo';
@@ -18,19 +17,14 @@ import {
 export default function RestfulPage() {
     const router = useRouter();
     const { userName, repoName } = router.query;
-    if (userName && repoName) {
-        if (typeof window === 'undefined') {
-            return <h1>Server generated placeholder ... - please enable javascript to load the page.</h1>;
-        }
-        return (
-            <>
-                <InternalLink href={'/restful'}>back to shortcut list</InternalLink>
 
-                <RestfulMain userName={userName} repoName={repoName} />
-            </>
-        );
-    }
-    return <WarningMissingURLParams />;
+    return (
+        <>
+            <InternalLink href={'/restful'}>back to repos</InternalLink>
+
+            <RestfulMain userName={userName} repoName={repoName} />
+        </>
+    );
 }
 
 export function RestfulMain({ userName, repoName }) {
