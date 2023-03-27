@@ -39,9 +39,9 @@
   "devDependencies": {
     "@chakra-ui/icons": "2.0.17",
     "@chakra-ui/system": "2.5.3",
-    "@fortawesome/fontawesome-svg-core": "6.3.0",
-    "@fortawesome/free-brands-svg-icons": "6.3.0",
-    "@fortawesome/free-solid-svg-icons": "6.3.0",
+    "@fortawesome/fontawesome-svg-core": "6.4.0",
+    "@fortawesome/free-brands-svg-icons": "6.4.0",
+    "@fortawesome/free-solid-svg-icons": "6.4.0",
     "@fortawesome/react-fontawesome": "0.2.0",
     "@octokit/types": "9.0.0",
     "@types/node": "18.15.3",
