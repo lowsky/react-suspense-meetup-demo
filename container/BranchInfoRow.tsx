@@ -22,11 +22,13 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, userName, repoNam
 
     const githubBranchSrc = `https://github.com/${userName}/${repoName}/tree/${name}`;
 
+    const branchUrlValid = userName && repoName;
+
     return (
         <Tr key={name}>
             <Td>
-                {name && userName && repoName && (
-                    <Link href={githubBranchSrc} rel="noopener noreferrer nofollow" isExternal>
+                {name && (
+                    <Link href={branchUrlValid ? githubBranchSrc : ''} rel="noopener noreferrer nofollow" isExternal>
                         {name}
                     </Link>
                 )}

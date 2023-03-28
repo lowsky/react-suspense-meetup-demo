@@ -5,7 +5,7 @@ import { ContentLoadingFallback } from '../../../components/ContentLoadingFallba
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
 import InternalLink from '../../../components/InternalLink';
 
-import UserRepoWaterfall from '../../../container/LazyUserRepo';
+import { UserRepoWaterfall } from '../../../container/LazyUserRepo';
 
 export default function WaterfallPage() {
     const router = useRouter();

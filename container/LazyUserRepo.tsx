@@ -2,7 +2,11 @@ import React, { Suspense } from 'react';
 import { Flex } from '@chakra-ui/react';
 
 import { Spinner } from '../components/Spinner';
-import { fetchRepoBranchesWithCommitStatuses, fetchUser } from '../restinpeace/github';
+import {
+    fetchRepoBranchesWithCommitStatuses,
+    fetchRepoBranchesWithCommitStatusesAndPullRequests,
+    fetchUser,
+} from '../restinpeace/github';
 import RichErrorBoundary from '../components/RichErrorBoundary';
 import Repo from '../components/Repo';
 import User from '../components/User';
@@ -20,6 +24,11 @@ const branchesWithStatusesInfoHash = (userName, repoName) => `${userName}/${repo
 const getBranches = createResource(
     ({ userName, repoName }) => fetchRepoBranchesWithCommitStatuses({ userName, repoName }),
     ({ userName, repoName }) => branchesWithStatusesInfoHash(userName, repoName)
+);
+
+const getBranchesFull = createResource(
+    ({ userName, repoName }) => fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName }),
+    ({ userName, repoName }) => `br_full/${userName}/${repoName}/`
 );
 
 export const UserRepoFetchAll: React.FunctionComponent<UserRepoProps> = ({ userName, repoName }) => {
@@ -53,8 +62,6 @@ export const UserRepoWaterfall: React.FunctionComponent<UserRepoProps> = ({ user
     );
 };
 
-export default UserRepoWaterfall;
-
 // fetchUser = async (username: string): Promise<User>;
 export const getUser = createResource(fetchUser);
 
@@ -67,8 +74,11 @@ const LazyUser = ({ userName }) => {
 const LazyBranchTable: React.FunctionComponent<{
     userName: string;
     repoName: string;
-}> = ({ userName, repoName }) => {
-    const repo = getBranches.read(cache, { userName, repoName });
+    loadAll?: boolean;
+}> = ({ userName, repoName, loadAll }) => {
+    const repo = loadAll
+        ? getBranchesFull.read(cache, { userName, repoName })
+        : getBranches.read(cache, { userName, repoName });
 
     return <BranchesTable repo={repo} />;
 };

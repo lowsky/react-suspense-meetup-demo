@@ -165,7 +165,7 @@ export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({ userN
 export async function fetchRepoBranchesWithCommitStatuses({ userName, repoName }) {
     const branches = await fetchRepoBranches(userName, repoName);
 
-    const branchesWithCommitProms = branches.map(async (branch) => {
+    const branchesWithCommitProms = branches.reverse().map(async (branch) => {
         const { sha } = branch.commit;
 
         const lastCommit = await getLastCommit(userName, repoName, sha);

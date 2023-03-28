@@ -3,10 +3,10 @@ import { Link } from '@chakra-ui/react';
 
 import { GithubCommit, Maybe } from '../restinpeace/types';
 import { CommitterInfo } from './CommitterInfo';
+import { CommitStatuses } from './CommitStatuses';
 import { Spinner } from './Spinner';
 
 import styles from './CommitWithStatuses.module.css';
-import { CommitStatuses } from './CommitStatuses';
 
 export interface CommitWithStatusProps {
     commit?: GithubCommit;

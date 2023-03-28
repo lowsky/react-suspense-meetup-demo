@@ -9,7 +9,7 @@ export default function Index() {
         <div>
             <Head>
                 <title>React Suspend Demo</title>
-                <link rel="icon" href="/public/favicon.ico" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
 
             <Heading>What is it?</Heading>
