@@ -12,7 +12,7 @@ import Repo from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from './BranchesTable';
 
-import { cache, createResource } from '../cache/reactCache';
+import { createResource } from '../cache/reactCache';
 
 export type UserRepoProps = Readonly<{
     userName: string;
@@ -66,7 +66,7 @@ export const UserRepoWaterfall: React.FunctionComponent<UserRepoProps> = ({ user
 export const getUser = createResource(fetchUser);
 
 const LazyUser = ({ userName }) => {
-    const user = getUser.read(cache, userName);
+    const user = getUser.read(userName);
 
     return <User user={user} />;
 };
@@ -76,9 +76,7 @@ const LazyBranchTable: React.FunctionComponent<{
     repoName: string;
     loadAll?: boolean;
 }> = ({ userName, repoName, loadAll }) => {
-    const repo = loadAll
-        ? getBranchesFull.read(cache, { userName, repoName })
-        : getBranches.read(cache, { userName, repoName });
+    const repo = loadAll ? getBranchesFull.read({ userName, repoName }) : getBranches.read({ userName, repoName });
 
     return <BranchesTable repo={repo} />;
 };
