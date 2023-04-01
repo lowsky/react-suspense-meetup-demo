@@ -37,7 +37,7 @@ export const UserRepoFetchAll: React.FunctionComponent<UserRepoProps> = ({ userN
             <Repo userName={userName} repoName={repoName} />
 
             <LazyUser userName={userName} />
-            <LazyBranchTable repoName={repoName} userName={userName} />
+            <LazyBranchTable repoName={repoName} userName={userName} loadAll />
         </Flex>
     );
 };

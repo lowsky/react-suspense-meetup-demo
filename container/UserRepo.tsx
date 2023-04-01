@@ -1,17 +1,14 @@
 import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
-import Repo from '../components/Repo';
+import Repo, { RepoType } from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from './BranchesTable';
-import { Branches, User as UserType } from '../restinpeace/github';
+import { User as UserType } from '../restinpeace/github';
 
 export type UserRepoProps = Readonly<{
     user?: UserType;
-    repo?: {
-        readonly name: string;
-        readonly branches: Branches;
-    };
+    repo?: RepoType;
     userName: string;
     repoName: string;
 }>;
