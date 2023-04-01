@@ -4318,15 +4318,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react-dom@npm:18.2.0"
+"react-dom@npm:^18.3.0-next":
+  version: 18.3.0-next-fecc288b7-20221025
+  resolution: "react-dom@npm:18.3.0-next-fecc288b7-20221025"
   dependencies:
     loose-envify: ^1.1.0
-    scheduler: ^0.23.0
+    scheduler: 0.24.0-next-fecc288b7-20221025
   peerDependencies:
-    react: ^18.2.0
-  checksum: 7d323310bea3a91be2965f9468d552f201b1c27891e45ddc2d6b8f717680c95a75ae0bc1e3f5cf41472446a2589a75aed4483aee8169287909fcd59ad149e8cc
+    react: 18.3.0-next-fecc288b7-20221025
+  checksum: bee2c161c37498974816abaf191767186473422d7642f7b333c039a046a0c1d724bc7a1482d714a9fff0f95287ee62909f2e903837a966a2fde1bca50fbf0c45
   languageName: node
   linkType: hard
 
@@ -4454,19 +4454,19 @@ __metadata:
     hitchcock: 0.5.0
     next: 13.2.4
     prettier: 2.8.7
-    react: 18.2.0
+    react: ^18.3.0-next
     react-cache: latest
-    react-dom: 18.2.0
+    react-dom: ^18.3.0-next
     typescript: 4.9.5
   languageName: unknown
   linkType: soft
 
-"react@npm:18.2.0":
-  version: 18.2.0
-  resolution: "react@npm:18.2.0"
+"react@npm:^18.3.0-next":
+  version: 18.3.0-next-fecc288b7-20221025
+  resolution: "react@npm:18.3.0-next-fecc288b7-20221025"
   dependencies:
     loose-envify: ^1.1.0
-  checksum: 88e38092da8839b830cda6feef2e8505dec8ace60579e46aa5490fc3dc9bba0bd50336507dc166f43e3afc1c42939c09fe33b25fae889d6f402721dcd78fca1b
+  checksum: 860e2a595be0f3c75707ae4850490b367f1e6fb4275c1af9a33f234a9d47d9202ad49c51366a3b9d43d145c6fe106dde1089d93d7227efaadcaa4b8432122cb7
   languageName: node
   linkType: hard
 
@@ -4592,12 +4592,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:^0.23.0":
-  version: 0.23.0
-  resolution: "scheduler@npm:0.23.0"
+"scheduler@npm:0.24.0-next-fecc288b7-20221025":
+  version: 0.24.0-next-fecc288b7-20221025
+  resolution: "scheduler@npm:0.24.0-next-fecc288b7-20221025"
   dependencies:
     loose-envify: ^1.1.0
-  checksum: d79192eeaa12abef860c195ea45d37cbf2bbf5f66e3c4dcd16f54a7da53b17788a70d109ee3d3dde1a0fd50e6a8fc171f4300356c5aee4fc0171de526bf35f8a
+  checksum: c51ecea03ce23c2cb27bfd6c0bb350722a6d7d9d692e43d195f0397fe29ce19f87e9f1a58939eab89b2535f1b87f45c52b898f3cfe2b5eeb1c78a6a97d53c117
   languageName: node
   linkType: hard
 
