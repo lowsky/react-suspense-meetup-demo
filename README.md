@@ -1,24 +1,24 @@
-## Stack
+## React-Suspend with data-loading
 
--   Next.js
--   ChakraUI
--   React
--   React.Cache
--   React.Suspend
--   Typescript
+There are these different modes how the page data are loaded:
 
-## Purpose
-
-List the `(feature) branches` of a GitHub repository with its
-
--   last commit's build status
--   last commit's linked PR
--   last commit's commit message
-
-Side by side comparison and playground showing loading indicators [hitchcock](https://github.com/pomber/hitchcock#readme) by [@pombo](https://github.com/pomber), based on work of Jared Palmer
+- [Classic way without Suspense](http://localhost:3000/restful): **All or nothing**: Fetching all data in place within a `useEffect()` + props-drilling
+- [One global Suspense](http://localhost:3000/wait-for-all):
+**Waiting until all**: **Waiting until** all data got fetched
+- ["Waterfall"](http://localhost:3000/waterfall): **Incremental Loading**: More than 1 Suspense in the tree hierarchy:
+- [Side-by-Side](http://localhost:3000/side-by-side): Show both, incremental loading and wait-for-all
 
 ![screenshot.png](public/screenshot-side-to-side.png)
 
+On the right side, there is a Cache-loading inspector ["hitchcock"](https://github.com/pomber/hitchcock#readme) by [@pombo](https://github.com/pomber), based on work of Jared Palmer
+
+## Purpose: React Suspense - demo
+
+List the `(feature) branches` of a GitHub repository with its `last commit's`
+
+-   linked PR
+-   build status-es
+-   commit message and author
 ## Getting started
 
 After invoking this in a shell
@@ -26,17 +26,17 @@ After invoking this in a shell
     git clone https://github.com/lowsky/react-suspense-meetup-demo
     cd react-suspense-meetup-demo
 
-    # Install the dependencies of the react app and
-    # installs the server's dependencies, too:
-    yarn
+    yarn install
 
-then set up the `github-token` (see [Setup GitHub Token](#setupgithubtoken) ) before starting local dev mode via:
+then set up the `github-token` (see below: [Setup GitHub Token](#setupgithubtoken) )
+
+before starting local dev mode via:
 
     yarn dev
 
-This runs Next.js dev-mode which includes the endpoints for the graphql API.
+This runs **next.js** in **dev-mode**
 
-Open the home [http://localhost:3000](http://localhost:3000) with your browser.
+Now, you can open the home [http://localhost:3000](http://localhost:3000) in your browser.
 
 Have fun!
 
@@ -46,14 +46,22 @@ You **need to create your own github-token** (see https://github.com/settings/to
 store it locally in `.env` file
 
     # create an .env file with this content ...
-
-GITHUB_TOKEN=XXX
+    GITHUB_TOKEN=XXX
 
     # ... and replace the XXX with your API key
-    # typically something like ghp_....
+    # typically something like
+    # GITHUB_TOKEN=ghp_....
 
-## ScreenShot
+
+## Stack
+
+-   Next.js
+-   React.Suspend
+-   React.Cache
+-   React
+-   ChakraUI
+-   Typescript
 
 ## License
 
-Licensed under the Apache License 2.0, Copyright ©️ 2022 Robert Hostlowsky. See [LICENSE](LICENSE) for more information.
+Licensed under the Apache License 2.0, Copyright ©️ 2023 Robert Hostlowsky. See [LICENSE](LICENSE) for more information.
