@@ -4291,6 +4291,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-cache@npm:latest":
+  version: 2.0.0-alpha.1
+  resolution: "react-cache@npm:2.0.0-alpha.1"
+  peerDependencies:
+    react: ^16.3.0-alpha.1
+  checksum: cfbe347eb81e7a32e1f02e8bc7aaec19a8448fc03f7696e98bd54bc2471bcc4f16b9540d5477e75a3daceeaa00a1e30bf6dfca95f4498b8b5c9452e9cf68589f
+  languageName: node
+  linkType: hard
+
 "react-clientside-effect@npm:^1.2.6":
   version: 1.2.6
   resolution: "react-clientside-effect@npm:1.2.6"
@@ -4439,8 +4448,8 @@ __metadata:
     next: 13.2.4
     prettier: 2.8.7
     react: 18.2.0
+    react-cache: latest
     react-dom: 18.2.0
-    simple-cache-provider: 0.10.0
     typescript: 4.9.5
   languageName: unknown
   linkType: soft
@@ -4636,15 +4645,6 @@ __metadata:
     get-intrinsic: ^1.0.2
     object-inspect: ^1.9.0
   checksum: 351e41b947079c10bd0858364f32bb3a7379514c399edb64ab3dce683933483fc63fb5e4efe0a15a2e8a7e3c436b6a91736ddb8d8c6591b0460a24bb4a1ee245
-  languageName: node
-  linkType: hard
-
-"simple-cache-provider@npm:0.10.0":
-  version: 0.10.0
-  resolution: "simple-cache-provider@npm:0.10.0"
-  peerDependencies:
-    react: ^16.3.0-alpha.1
-  checksum: 42b815e2ecd644d4374dc62d8d1b2f05528a6a9bc5b5d06a7428973ed252efa4a790b5942324db166b753e96529a0e06ff8491a89c74ba7f14057cc7826ecef8
   languageName: node
   linkType: hard
 
