@@ -7,17 +7,13 @@ import {
     fetchRepoBranchesWithCommitStatusesAndPullRequests,
     fetchUser,
 } from '../restinpeace/github';
+import { useUserRepo } from '../components/useUserRepoFromRoute';
 import RichErrorBoundary from '../components/RichErrorBoundary';
 import Repo from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from './BranchesTable';
 
 import { createResource } from '../cache/reactCache';
-
-export type UserRepoProps = Readonly<{
-    userName: string;
-    repoName: string;
-}>;
 
 const branchesWithStatusesInfoHash = (userName, repoName) => `${userName}/${repoName}/br+stats`;
 
@@ -31,31 +27,30 @@ const getBranchesFull = createResource(
     ({ userName, repoName }) => `br_full/${userName}/${repoName}/`
 );
 
-export const UserRepoFetchAll: React.FunctionComponent<UserRepoProps> = ({ userName, repoName }) => {
+export const UserRepoFetchAll = () => {
     return (
         <Flex gap="4" direction="column">
-            <Repo userName={userName} repoName={repoName} />
-
-            <LazyUser userName={userName} />
-            <LazyBranchTable repoName={repoName} userName={userName} loadAll />
+            <Repo />
+            <LazyUser />
+            <LazyBranchTable loadAll />
         </Flex>
     );
 };
 
-export const UserRepoWaterfall: React.FunctionComponent<UserRepoProps> = ({ userName, repoName }) => {
+export const UserRepoWaterfall = () => {
     return (
         <Flex gap="4" direction="column">
-            <Repo userName={userName} repoName={repoName} />
-
+            <Suspense fallback={<Spinner />}>
+                <Repo />
+            </Suspense>
             <Suspense fallback={<Spinner />}>
                 <RichErrorBoundary message={'User not found'}>
-                    <LazyUser userName={userName} />
+                    <LazyUser />
                 </RichErrorBoundary>
             </Suspense>
-
             <Suspense fallback={<Spinner />}>
-                <RichErrorBoundary message={null}>
-                    <LazyBranchTable repoName={repoName} userName={userName} />
+                <RichErrorBoundary message={null /* ignore errors here*/}>
+                    <LazyBranchTable />
                 </RichErrorBoundary>
             </Suspense>
         </Flex>
@@ -65,17 +60,19 @@ export const UserRepoWaterfall: React.FunctionComponent<UserRepoProps> = ({ user
 // fetchUser = async (username: string): Promise<User>;
 export const getUser = createResource(fetchUser);
 
-const LazyUser = ({ userName }) => {
+const LazyUser = () => {
+    const { userName } = useUserRepo();
+
     const user = getUser.read(userName);
 
     return <User user={user} />;
 };
 
 const LazyBranchTable: React.FunctionComponent<{
-    userName: string;
-    repoName: string;
     loadAll?: boolean;
-}> = ({ userName, repoName, loadAll }) => {
+}> = ({ loadAll }) => {
+    const { userName, repoName } = useUserRepo();
+
     const repo = loadAll ? getBranchesFull.read({ userName, repoName }) : getBranches.read({ userName, repoName });
 
     return <BranchesTable repo={repo} />;

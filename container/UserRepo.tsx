@@ -1,6 +1,7 @@
 import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
+import { useUserRepo } from '../components/useUserRepoFromRoute';
 import Repo, { RepoType } from '../components/Repo';
 import User from '../components/User';
 import BranchesTable from './BranchesTable';
@@ -9,11 +10,10 @@ import { User as UserType } from '../restinpeace/github';
 export type UserRepoProps = Readonly<{
     user?: UserType;
     repo?: RepoType;
-    userName: string;
-    repoName: string;
 }>;
 
-const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo, userName, repoName }) => {
+const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo }) => {
+    const { userName, repoName } = useUserRepo();
     return (
         <Flex gap="4" direction="column">
             {!user && (

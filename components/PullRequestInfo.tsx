@@ -4,12 +4,10 @@ import { Link, VStack } from '@chakra-ui/react';
 import { Maybe } from '../restinpeace/types';
 import { fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
 import { createResource } from '../cache/reactCache';
+import { useUserRepo } from './useUserRepoFromRoute';
 
 export type PullRequestInfoProps = {
     pullRequest?: PullRequestData;
-
-    userName?: Maybe<string>;
-    repoName?: Maybe<string>;
     sha?: Maybe<string>;
 };
 
@@ -24,7 +22,9 @@ const getPR = createResource(
     ({ userName, repoName, sha }) => `pr/${userName}/${repoName}/${sha.slice(0, 8)}`
 );
 
-export default function PullRequestInfo({ pullRequest, userName, repoName, sha }: PullRequestInfoProps) {
+export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
+    const { userName, repoName } = useUserRepo();
+
     // load on-demand, if no pullRequest given
     const { number, title, url, html_url } =
         pullRequest ?? getPR.read(null, { userName, repoName, sha })?.find?.(Boolean) ?? {};
