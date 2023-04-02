@@ -2579,10 +2579,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:3.1.1, csstype@npm:^3.0.11, csstype@npm:^3.0.2":
-  version: 3.1.1
-  resolution: "csstype@npm:3.1.1"
-  checksum: 1f7b4f5fdd955b7444b18ebdddf3f5c699159f13e9cf8ac9027ae4a60ae226aef9bbb14a6e12ca7dba3358b007cee6354b116e720262867c398de6c955ea451d
+"csstype@npm:3.1.2":
+  version: 3.1.2
+  resolution: "csstype@npm:3.1.2"
+  checksum: e1a52e6c25c1314d6beef5168da704ab29c5186b877c07d822bd0806717d9a265e8493a2e35ca7e68d0f5d472d43fac1cdce70fd79fd0853dff81f3028d857b5
   languageName: node
   linkType: hard
 
@@ -2590,6 +2590,13 @@ __metadata:
   version: 2.6.21
   resolution: "csstype@npm:2.6.21"
   checksum: 2ce8bc832375146eccdf6115a1f8565a27015b74cce197c35103b4494955e9516b246140425ad24103864076aa3e1257ac9bab25a06c8d931dd87a6428c9dccf
+  languageName: node
+  linkType: hard
+
+"csstype@npm:^3.0.11, csstype@npm:^3.0.2":
+  version: 3.1.1
+  resolution: "csstype@npm:3.1.1"
+  checksum: 1f7b4f5fdd955b7444b18ebdddf3f5c699159f13e9cf8ac9027ae4a60ae226aef9bbb14a6e12ca7dba3358b007cee6354b116e720262867c398de6c955ea451d
   languageName: node
   linkType: hard
 
@@ -4291,6 +4298,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-cache@npm:latest":
+  version: 2.0.0-alpha.1
+  resolution: "react-cache@npm:2.0.0-alpha.1"
+  peerDependencies:
+    react: ^16.3.0-alpha.1
+  checksum: cfbe347eb81e7a32e1f02e8bc7aaec19a8448fc03f7696e98bd54bc2471bcc4f16b9540d5477e75a3daceeaa00a1e30bf6dfca95f4498b8b5c9452e9cf68589f
+  languageName: node
+  linkType: hard
+
 "react-clientside-effect@npm:^1.2.6":
   version: 1.2.6
   resolution: "react-clientside-effect@npm:1.2.6"
@@ -4431,7 +4447,7 @@ __metadata:
     "@types/node": 18.15.11
     "@types/react": 18.0.31
     "@types/react-dom": 18.0.11
-    csstype: 3.1.1
+    csstype: 3.1.2
     eslint: 8.37.0
     eslint-config-next: 13.2.4
     framer-motion: 10.10.0
@@ -4439,8 +4455,8 @@ __metadata:
     next: 13.2.4
     prettier: 2.8.7
     react: 18.2.0
+    react-cache: latest
     react-dom: 18.2.0
-    simple-cache-provider: 0.10.0
     typescript: 4.9.5
   languageName: unknown
   linkType: soft
@@ -4636,15 +4652,6 @@ __metadata:
     get-intrinsic: ^1.0.2
     object-inspect: ^1.9.0
   checksum: 351e41b947079c10bd0858364f32bb3a7379514c399edb64ab3dce683933483fc63fb5e4efe0a15a2e8a7e3c436b6a91736ddb8d8c6591b0460a24bb4a1ee245
-  languageName: node
-  linkType: hard
-
-"simple-cache-provider@npm:0.10.0":
-  version: 0.10.0
-  resolution: "simple-cache-provider@npm:0.10.0"
-  peerDependencies:
-    react: ^16.3.0-alpha.1
-  checksum: 42b815e2ecd644d4374dc62d8d1b2f05528a6a9bc5b5d06a7428973ed252efa4a790b5942324db166b753e96529a0e06ff8491a89c74ba7f14057cc7826ecef8
   languageName: node
   linkType: hard
 
