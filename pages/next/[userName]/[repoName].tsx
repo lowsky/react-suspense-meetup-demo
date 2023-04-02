@@ -2,12 +2,12 @@
 import React, { use, Suspense, cache } from 'react';
 
 import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from '../../../restinpeace/github';
+import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
 import UserRepo from '../../../container/UserRepo';
 import RichErrorBoundary from '../../../components/RichErrorBoundary';
 import InternalLink from '../../../components/InternalLink';
 import { Spinner } from '../../../components/Spinner';
 import { RepoType } from '../../../components/Repo';
-import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
 
 function delay(timeout) {
     return new Promise((resolve) => {
@@ -15,20 +15,22 @@ function delay(timeout) {
     });
 }
 
-export default function RestfulPage() {
+export default function ReactNextDrivenPage() {
+    return (
+        <UserRepoFromUrlProvider>
+            <ReactNextWithUrlContext />
+        </UserRepoFromUrlProvider>
+    );
+}
+
+function ReactNextWithUrlContext() {
     const { userName, repoName } = useUserRepo();
-
-    if (!userName || !repoName) {
-        // This is not yet supported on the server-side, so we need to skip rendering:
-        return null;
-    }
-
     const userData: Promise<User> = fetchUserPromise(userName);
     const repoData: Promise<RepoType> = fetchRepoBranches({ userName, repoName });
     return (
         <UserRepoFromUrlProvider>
             <RichErrorBoundary>
-                <InternalLink href={'/restful'}>back to repos</InternalLink>
+                <InternalLink href={'/next'}>back to repos</InternalLink>
                 <Suspense fallback={<Spinner />}>
                     <ReactNext userData={userData} repoData={repoData} />
                 </Suspense>
