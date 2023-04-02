@@ -1,19 +1,19 @@
-import { useRouter } from 'next/router';
 import React, { Suspense } from 'react';
 
 import { Spinner } from '../../../components/Spinner';
 import InternalLink from '../../../components/InternalLink';
 
+import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
 import { WaitForAll } from '../../wait-for-all/[userName]/[repoName]';
 import { WaterfallMain } from '../../waterfall/[userName]/[repoName]';
 
 import styles from './side-by-side.module.css';
 
 export const SideBySide = () => {
-    const router = useRouter();
-    const { userName, repoName } = router.query;
+    const { userName, repoName } = useUserRepo();
+
     return (
-        <div>
+        <UserRepoFromUrlProvider>
             <InternalLink href={`/side-by-side/`}>back to shortcut list</InternalLink>
 
             <Suspense fallback={<Spinner />}>
@@ -26,7 +26,7 @@ export const SideBySide = () => {
                     </div>
                 </div>
             </Suspense>
-        </div>
+        </UserRepoFromUrlProvider>
     );
 };
 

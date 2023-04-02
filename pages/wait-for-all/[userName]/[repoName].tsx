@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react';
-import { useRouter } from 'next/router';
 
 import InternalLink from '../../../components/InternalLink';
 
@@ -7,17 +6,16 @@ import RichErrorBoundary from '../../../components/RichErrorBoundary';
 
 import { UserRepoFetchAll } from '../../../container/LazyUserRepo';
 import { ContentLoadingFallback } from '../../../components/ContentLoadingFallback';
+import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
 
 export default function LoadAllThenPage() {
-    const router = useRouter();
-    const { userName, repoName } = router.query;
-
+    const { userName, repoName } = useUserRepo();
     return (
-        <>
+        <UserRepoFromUrlProvider>
             <InternalLink href={`/wait-for-all/`}>back to shortcut list</InternalLink>
 
             <WaitForAll userName={userName} repoName={repoName} />
-        </>
+        </UserRepoFromUrlProvider>
     );
 }
 

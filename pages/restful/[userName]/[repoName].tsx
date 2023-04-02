@@ -1,7 +1,6 @@
 'use client'; // this directive should be at top of the file, before any imports.
 
 import React, { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import InternalLink from '../../../components/InternalLink';
@@ -13,21 +12,20 @@ import {
     fetchUser,
     User,
 } from '../../../restinpeace/github';
+import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
 
 export default function RestfulPage() {
-    const router = useRouter();
-    const { userName, repoName } = router.query;
-
     return (
-        <>
+        <UserRepoFromUrlProvider>
             <InternalLink href={'/restful'}>back to repos</InternalLink>
 
-            <RestfulMain userName={userName} repoName={repoName} />
-        </>
+            <RestfulMain />
+        </UserRepoFromUrlProvider>
     );
 }
 
-export function RestfulMain({ userName, repoName }) {
+export function RestfulMain() {
+    const { userName, repoName } = useUserRepo();
     const [repo, storeRepo] = useState({
         name: repoName,
         owner: { login: userName },
