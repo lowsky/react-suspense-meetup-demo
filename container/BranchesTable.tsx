@@ -9,7 +9,7 @@ export interface BranchesTableProps {
     repo?: GithubRepo;
 }
 const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
-    const { branches, name, owner } = repo ?? {};
+    const { branches } = repo ?? {};
     return (
         <Table size="sm" variant="striped">
             <Thead>
@@ -27,13 +27,7 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
                     .filter((b) => Boolean(b))
                     .map((branch, idx) => (
                         <Suspense key={idx} fallback={<SkeletonRow />}>
-                            <BranchInfoRow
-                                key={idx}
-                                branch={branch!}
-                                userName={owner?.login}
-                                repoName={name}
-                                sha={branch!.lastCommit?.sha}
-                            />
+                            <BranchInfoRow key={idx} branch={branch!} sha={branch!.lastCommit?.sha} />
                         </Suspense>
                     ))}
             </Tbody>

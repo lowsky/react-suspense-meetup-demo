@@ -5,18 +5,19 @@ import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Icon, Link, Td, Tr, VStack } from '@chakra-ui/react';
 
 import { GithubBranch, Maybe } from '../restinpeace/types';
+import { useUserRepo } from '../components/useUserRepoFromRoute';
 import { Spinner } from '../components/Spinner';
 import PullRequestInfo from '../components/PullRequestInfo';
 import CommitWithStatuses, { CommitWithStatusesSkeleton } from '../components/CommitWithStatuses';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
-    userName?: Maybe<string>;
-    repoName?: Maybe<string>;
     sha?: Maybe<string>;
 }
 
-const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, userName, repoName, sha }) => {
+const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
+    const { userName, repoName } = useUserRepo();
+
     const { name, lastCommit } = branch ?? {};
     const { associatedPullRequests } = lastCommit ?? {};
 
@@ -46,13 +47,13 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, userName, repoNam
                     {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
                         <PullRequestInfo key={idx} pullRequest={pr!} />
                     ))}
-                    {!associatedPullRequests && <PullRequestInfo userName={userName} repoName={repoName} sha={sha} />}
+                    {!associatedPullRequests && <PullRequestInfo sha={sha} />}
                 </Suspense>
             </Td>
 
             <Td>
                 <Suspense fallback={<CommitWithStatusesSkeleton />}>
-                    {lastCommit && <CommitWithStatuses commit={lastCommit} userName={userName} repoName={repoName} />}
+                    {lastCommit && <CommitWithStatuses commit={lastCommit} />}
                 </Suspense>
             </Td>
         </Tr>

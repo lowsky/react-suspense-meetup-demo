@@ -18,7 +18,6 @@ export default function RestfulPage() {
     return (
         <UserRepoFromUrlProvider>
             <InternalLink href={'/restful'}>back to repos</InternalLink>
-
             <RestfulMain />
         </UserRepoFromUrlProvider>
     );
@@ -82,7 +81,7 @@ export function RestfulMain() {
 
     return (
         <>
-            <UserRepo user={user} repo={repo} repoName={repoName} userName={userName} />
+            <UserRepo user={user} repo={repo} />
 
             {errorMsg && (
                 <Alert status="error">

@@ -5,24 +5,22 @@ import RichErrorBoundary from '../../../components/RichErrorBoundary';
 import InternalLink from '../../../components/InternalLink';
 
 import { UserRepoWaterfall } from '../../../container/LazyUserRepo';
-import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
+import { UserRepoFromUrlProvider } from '../../../components/useUserRepoFromRoute';
 
 export default function WaterfallPage() {
-    const { userName, repoName } = useUserRepo();
     return (
         <UserRepoFromUrlProvider>
             <InternalLink href={'/waterfall'}>back to shortcut list</InternalLink>
-
-            <WaterfallMain userName={userName} repoName={repoName} />
+            <WaterfallMain />
         </UserRepoFromUrlProvider>
     );
 }
 
-export function WaterfallMain({ userName, repoName }) {
+export function WaterfallMain() {
     return (
         <RichErrorBoundary>
             <Suspense fallback={<ContentLoadingFallback />}>
-                {userName && repoName && <UserRepoWaterfall repoName={repoName} userName={userName} />}
+                <UserRepoWaterfall />
             </Suspense>
         </RichErrorBoundary>
     );
