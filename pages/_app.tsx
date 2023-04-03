@@ -16,7 +16,7 @@ export default function App({ Component, pageProps }) {
             </header>
             <Alert status="warning">
                 <AlertIcon />
-                This demo runs into issues caused by GitHub's rate-limiting, sorry!
+                This demo runs into issues caused by GitHub rate-limiting, sorry!
             </Alert>
             <DirectorLayout>
                 <Component {...pageProps} />
