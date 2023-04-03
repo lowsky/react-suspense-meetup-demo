@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { Alert, AlertIcon, ChakraProvider, extendTheme } from '@chakra-ui/react';
 
 import { themeConfig } from '../components/theme';
 import { NavBar } from '../components/NavBar';
@@ -14,7 +14,10 @@ export default function App({ Component, pageProps }) {
             <header>
                 <NavBar />
             </header>
-
+            <Alert status="warning">
+                <AlertIcon />
+                This demo runs into issues caused by GitHub's rate-limiting, sorry!
+            </Alert>
             <DirectorLayout>
                 <Component {...pageProps} />
             </DirectorLayout>
