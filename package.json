@@ -26,7 +26,7 @@
     "url": "https://github.com/lowsky/react-suspense-meetup-demo/issues"
   },
   "dependencies": {
-    "@chakra-ui/react": "2.5.5",
+    "@chakra-ui/react": "2.6.1",
     "@emotion/react": "11.10.6",
     "@emotion/styled": "11.10.6",
     "@octokit/rest": "19.0.7",
@@ -36,8 +36,8 @@
     "react-cache": "latest"
   },
   "devDependencies": {
-    "@chakra-ui/icons": "2.0.18",
-    "@chakra-ui/system": "2.5.5",
+    "@chakra-ui/icons": "2.0.19",
+    "@chakra-ui/system": "2.5.7",
     "@fortawesome/fontawesome-svg-core": "6.4.0",
     "@fortawesome/free-brands-svg-icons": "6.4.0",
     "@fortawesome/free-solid-svg-icons": "6.4.0",
