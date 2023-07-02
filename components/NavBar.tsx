@@ -17,12 +17,9 @@ import {
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 import InternalLink from './InternalLink';
-import { useRouter } from 'next/router';
-import { ReactNode } from 'react';
 
 export function NavBar() {
     const { isOpen, onToggle } = useDisclosure();
-    const { owner, repo } = useOwnerRepoFromUrl('facebook', 'react');
 
     const backgroundColor = useColorModeValue('white', 'gray.800');
     const borderColor = useColorModeValue('gray.200', 'gray.900');
@@ -55,28 +52,27 @@ export function NavBar() {
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
                     <Flex display={{ base: 'none', md: 'flex' }}>
-                        <DesktopNav owner={owner} repo={repo} />
+                        <DesktopNav />
                         <DarkLightThemeToggle />
                     </Flex>
                 </Flex>
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
-                <MobileNav owner={owner} repo={repo} />
+                <MobileNav />
             </Collapse>
         </Box>
     );
 }
 
-const DesktopNav = ({ owner, repo }) => {
-    const hoverColor = useColorModeValue('gray.800', 'white');
-
+const DesktopNav = () => {
+    const color = useColorModeValue('gray.800', 'white');
     return (
         <Stack direction="row" spacing={4} align="center">
-            {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-                <Popover trigger="hover" placement="bottom-start" key={href}>
+            {NAV_ITEMS.map(({ href, label }) => (
+                <Popover trigger="hover" placement="bottom-start" key={label}>
                     <PopoverTrigger>
-                        <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color: hoverColor }}>
+                        <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color }}>
                             {label}
                         </InternalLink>
                     </PopoverTrigger>
@@ -86,10 +82,10 @@ const DesktopNav = ({ owner, repo }) => {
     );
 };
 
-const MobileNav = ({ owner, repo }) => (
+const MobileNav = () => (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-        {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-            <MobileNavItem key={href} label={label} href={href} />
+        {NAV_ITEMS.map(({ href, label }) => (
+            <MobileNavItem key={label} label={label} href={href} />
         ))}
         <DarkLightThemeToggle />
     </Stack>
@@ -110,66 +106,38 @@ const MobileNavItem = ({ label, href }: NavItem) => {
 };
 
 interface NavItem {
-    label: string | ReactNode;
+    label: string;
     href?: string;
 }
 
-function getNavItemsForRepo(owner, repo): NavItem[] {
-    const ownerRepo = owner + '/' + repo;
+const NAV_ITEMS: Array<NavItem> = [
+    {
+        label: 'Home',
+        href: '/',
+    },
+    {
+        label: 'React (old way)',
+        href: '/restful/facebook/react',
+    },
+    {
+        label: 'React, (One Suspense)',
+        href: '/wait-for-all/facebook/react',
+    },
+    {
+        label: 'React, Waterfall (2 Suspense)',
+        href: '/waterfall/facebook/react',
+    },
+    {
+        label: 'Side-by-side',
+        href: '/side-by-side/lowsky/spotify-graphql-server',
+    },
+    {
+        label: 'GitHub',
+        href: 'https://github.com/lowsky/dashboard',
+    },
+];
 
-    return [
-        {
-            label: 'Home',
-            href: '/',
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    (old way)
-                </span>
-            ),
-            href: '/restful/' + ownerRepo,
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    (One Suspense)
-                </span>
-            ),
-            href: '/wait-for-all/' + ownerRepo,
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    Waterfall (2 Suspense)
-                </span>
-            ),
-            href: '/waterfall/' + ownerRepo,
-        },
-        {
-            label: (
-                <span>
-                    {repo}
-                    <br />
-                    side-by-side
-                </span>
-            ),
-            href: '/side-by-side/' + ownerRepo,
-        },
-        {
-            label: 'GitHub',
-            href: 'https://www.github.com/lowsky/react-suspense-meetup-demo',
-        },
-    ];
-}
-
-function DarkLightThemeToggle() {
+export function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
 
     return (
@@ -183,14 +151,4 @@ function DarkLightThemeToggle() {
             </Flex>
         </Box>
     );
-}
-
-function useOwnerRepoFromUrl(ownerFallback, repoFallback): { owner: string; repo: string } {
-    const router = useRouter();
-    const isRepoPage = /\/.*\/.*\/.*/.test(router.pathname);
-    const { userName, repoName } = router.query;
-
-    const [owner, repo] = isRepoPage ? [userName, repoName] : [ownerFallback, repoFallback];
-
-    return { owner, repo };
 }

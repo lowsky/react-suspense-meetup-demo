@@ -8,19 +8,23 @@ import DirectorLayout from '../components/DirectorLayout';
 
 export const customTheme = extendTheme({ ...themeConfig });
 
+import ChakraMdxProvider from '../components/ChakraMdxProvider';
+
 export default function App({ Component, pageProps }) {
     return (
         <ChakraProvider theme={customTheme}>
             <header>
                 <NavBar />
             </header>
-            <Alert status="warning">
-                <AlertIcon />
-                This demo runs into issues caused by GitHub rate-limiting, sorry!
-            </Alert>
-            <DirectorLayout>
-                <Component {...pageProps} />
-            </DirectorLayout>
+            <ChakraMdxProvider>
+              <Alert status="warning">
+                  <AlertIcon />
+                  This demo runs into issues caused by GitHub rate-limiting, sorry!
+              </Alert>
+              <DirectorLayout>
+                  <Component {...pageProps} />
+              </DirectorLayout>
+            </ChakraMdxProvider>
         </ChakraProvider>
     );
 }

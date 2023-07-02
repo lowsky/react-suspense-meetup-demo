@@ -60,7 +60,7 @@ export const UserRepoWaterfall = () => {
 // fetchUser = async (username: string): Promise<User>;
 export const getUser = createResource(fetchUser);
 
-const LazyUser = () => {
+export const LazyUser = () => {
     const { userName } = useUserRepo();
 
     const user = getUser.read(userName);
@@ -68,7 +68,7 @@ const LazyUser = () => {
     return <User user={user} />;
 };
 
-const LazyBranchTable: React.FunctionComponent<{
+export const LazyBranchTable: React.FunctionComponent<{
     loadAll?: boolean;
 }> = ({ loadAll }) => {
     const { userName, repoName } = useUserRepo();
