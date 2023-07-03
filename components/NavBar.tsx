@@ -1,3 +1,5 @@
+'use client';
+
 import {
     Box,
     Button,
@@ -5,8 +7,6 @@ import {
     Collapse,
     Flex,
     IconButton,
-    Popover,
-    PopoverTrigger,
     Stack,
     Text,
     useColorMode,
@@ -17,8 +17,12 @@ import {
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 import InternalLink from './InternalLink';
+import { useParams } from 'next/navigation';
+import { ReactNode } from 'react';
 
 export function NavBar() {
+    const params = useParams();
+    const { userName: owner, repoName: repo } = params ?? {};
     const { isOpen, onToggle } = useDisclosure();
 
     const backgroundColor = useColorModeValue('white', 'gray.800');
@@ -52,41 +56,48 @@ export function NavBar() {
                 </Flex>
                 <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
                     <Flex display={{ base: 'none', md: 'flex' }}>
-                        <DesktopNav />
+                        <DesktopNav owner={owner} repo={repo} />
                         <DarkLightThemeToggle />
                     </Flex>
                 </Flex>
             </Flex>
 
             <Collapse in={isOpen} animateOpacity>
-                <MobileNav />
+                <MobileNav owner={owner} repo={repo} />
             </Collapse>
         </Box>
     );
 }
 
-const DesktopNav = () => {
-    const color = useColorModeValue('gray.800', 'white');
+const DesktopNav = ({ owner, repo }) => {
     return (
         <Stack direction="row" spacing={4} align="center">
-            {NAV_ITEMS.map(({ href, label }) => (
-                <Popover trigger="hover" placement="bottom-start" key={label}>
-                    <PopoverTrigger>
-                        <InternalLink href={href ?? '#'} _hover={{ textDecoration: 'none', color }}>
-                            {label}
-                        </InternalLink>
-                    </PopoverTrigger>
-                </Popover>
+            <InternalLink href="/">Home</InternalLink>
+
+            {owner && repo && <strong>{repo}</strong>}
+            {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
+                <InternalLink key={href} href={href ?? '#'}>
+                    {label}
+                </InternalLink>
             ))}
+            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
         </Stack>
     );
 };
 
-const MobileNav = () => (
+const MobileNav = ({ owner, repo }) => (
     <Stack bg={useColorModeValue('white', 'gray.800')} p={4} display={{ md: 'none' }}>
-        {NAV_ITEMS.map(({ href, label }) => (
-            <MobileNavItem key={label} label={label} href={href} />
+        <InternalLink href="/">Home</InternalLink>
+        <br />
+        {owner && repo && (
+            <Text>
+                open <strong>{repo}</strong> via:
+            </Text>
+        )}
+        {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
+            <MobileNavItem key={href} label={label} href={href} />
         ))}
+        <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
         <DarkLightThemeToggle />
     </Stack>
 );
@@ -106,42 +117,49 @@ const MobileNavItem = ({ label, href }: NavItem) => {
 };
 
 interface NavItem {
-    label: string;
+    label: string | ReactNode;
     href?: string;
 }
 
-const NAV_ITEMS: Array<NavItem> = [
-    {
-        label: 'Home',
-        href: '/',
-    },
-    {
-        label: 'React (old way)',
-        href: '/restful/facebook/react',
-    },
-    {
-        label: 'React, (One Suspense)',
-        href: '/wait-for-all/facebook/react',
-    },
-    {
-        label: 'React, Waterfall (2 Suspense)',
-        href: '/waterfall/facebook/react',
-    },
-    {
-        label: 'Side-by-side',
-        href: '/side-by-side/lowsky/spotify-graphql-server',
-    },
-    {
-        label: 'GitHub',
-        href: 'https://github.com/lowsky/dashboard',
-    },
-];
+function getNavItemsForRepo(owner, repo): NavItem[] {
+    const ownerRepo = owner + '/' + repo;
+    if (owner && repo)
+        return [
+            {
+                label: <span>Next.js+rfc220</span>,
+                href: '/next/' + ownerRepo,
+            },
+            {
+                label: <span>Classic</span>,
+                href: '/restful/' + ownerRepo,
+            },
+            {
+                label: <span>Wait+for+all</span>,
+                href: '/wait-for-all/' + ownerRepo,
+            },
+            {
+                label: <span>Incremental</span>,
+                href: '/waterfall/' + ownerRepo,
+            },
+            {
+                label: <span>Comparison</span>,
+                href: '/side-by-side/' + ownerRepo,
+            },
+        ];
 
-export function DarkLightThemeToggle() {
+    return [];
+}
+
+function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
+    const colorModeValue = useColorModeValue('white', 'gray.800');
 
+    // at the moment, the chakra theme support is not fully working -> disabling
+    if (true) {
+        return null;
+    }
     return (
-        <Box bg={useColorModeValue('white', 'gray.800')} px={4}>
+        <Box bg={colorModeValue} px={4}>
             <Flex h={8} alignItems="center" justifyContent="space-between">
                 <Flex alignItems="center">
                     <Stack direction="row">
