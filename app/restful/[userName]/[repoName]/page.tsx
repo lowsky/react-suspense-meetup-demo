@@ -1,30 +1,28 @@
-'use client'; // this directive should be at top of the file, before any imports.
+'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 
-import InternalLink from '../../../components/InternalLink';
+import { Branches, fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
+import InternalLink from 'components/InternalLink';
+import UserRepo from 'container/UserRepo';
+import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';
 
-import UserRepo from '../../../container/UserRepo';
-import {
-    Branches,
-    fetchRepoBranchesWithCommitStatusesAndPullRequests,
-    fetchUser,
-    User,
-} from '../../../restinpeace/github';
-import { UserRepoFromUrlProvider, useUserRepo } from '../../../components/useUserRepoFromRoute';
+export const revalidate = 10;
 
-export default function RestfulPage() {
+export default function RestfulPage({ params }) {
+    const { userName, repoName } = params;
     return (
-        <UserRepoFromUrlProvider>
+        <>
             <InternalLink href={'/restful'}>back to repos</InternalLink>
-            <RestfulMain />
-        </UserRepoFromUrlProvider>
+            <Suspense fallback={<ContentLoadingFallback />}>
+                <RestfulMain userName={userName} repoName={repoName} />
+            </Suspense>
+        </>
     );
 }
 
-export function RestfulMain() {
-    const { userName, repoName } = useUserRepo();
+function RestfulMain({ userName, repoName }) {
     const [repo, storeRepo] = useState({
         name: repoName,
         owner: { login: userName },
