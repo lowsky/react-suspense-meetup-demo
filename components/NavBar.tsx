@@ -80,7 +80,7 @@ const DesktopNav = ({ owner, repo }) => {
                     {label}
                 </InternalLink>
             ))}
-            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
+            <InternalLink href="https://www.github.com/lowsky/react-suspense-meetup-demo">GitHub/Repo</InternalLink>
         </Stack>
     );
 };
@@ -97,7 +97,7 @@ const MobileNav = ({ owner, repo }) => (
         {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
             <MobileNavItem key={href} label={label} href={href} />
         ))}
-        <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
+        <InternalLink href="https://www.github.com/lowsky/react-suspense-meetup-demo">GitHub/Repo</InternalLink>
         <DarkLightThemeToggle />
     </Stack>
 );

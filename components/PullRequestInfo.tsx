@@ -1,9 +1,10 @@
+'use client';
 import React from 'react';
 import { Link, VStack } from '@chakra-ui/react';
 
-import { Maybe } from '../restinpeace/types';
-import { fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
-import { createResource } from '../cache/reactCache';
+import { Maybe } from 'restinpeace/types';
+import { fetchRepoPullRequestsAssociatedWithCommit } from 'restinpeace/github';
+import { createResource } from 'cache/reactCache';
 import { useUserRepo } from './useUserRepoFromRoute';
 
 export type PullRequestInfoProps = {

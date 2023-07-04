@@ -1,11 +1,13 @@
+'use client';
+
 import React from 'react';
 import { Alert, AlertIcon, Flex } from '@chakra-ui/react';
 
-import { useUserRepo } from '../components/useUserRepoFromRoute';
-import Repo, { RepoType } from '../components/Repo';
-import User from '../components/User';
+import { useUserRepo } from 'components/useUserRepoFromRoute';
+import Repo, { RepoType } from 'components/Repo';
+import User from 'components/User';
 import BranchesTable from './BranchesTable';
-import { User as UserType } from '../restinpeace/github';
+import { User as UserType } from 'restinpeace/github';
 
 export type UserRepoProps = Readonly<{
     user?: UserType;
@@ -32,7 +34,10 @@ const UserRepo: React.FunctionComponent<UserRepoProps> = ({ user, repo }) => {
                 </Alert>
             )}
             {repo && <Repo repo={repo} />}
-            {user && <User user={user} />}
+            {user && (
+                // @ts-expect-error temporary ignore type mismatch
+                <User user={user} />
+            )}
             {repo && <BranchesTable repo={repo} />}
         </Flex>
     );
