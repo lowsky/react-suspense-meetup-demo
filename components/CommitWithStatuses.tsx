@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { Link } from '@chakra-ui/react';
 
-import { GithubCommit } from '../restinpeace/types';
+import { GithubCommit } from 'restinpeace/types';
 import { useUserRepo } from './useUserRepoFromRoute';
 import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
@@ -35,7 +35,9 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) 
                 <CommitterInfo author={author} />
             </div>
 
-            <CommitStatuses statuses={status ?? statuses} />
+            <Suspense fallback={<Spinner size={3} />}>
+                <CommitStatuses statuses={status ?? statuses} />
+            </Suspense>
         </>
     );
 };

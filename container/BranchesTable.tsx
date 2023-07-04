@@ -1,12 +1,12 @@
 import React, { Suspense } from 'react';
 import { Table, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
 
-import { GithubRepo } from '../restinpeace/types';
+import { GithubRepo } from 'restinpeace/types';
 
 import BranchInfoRow, { SkeletonRow } from './BranchInfoRow';
 
 export interface BranchesTableProps {
-    repo?: GithubRepo;
+    repo: GithubRepo;
 }
 const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
     const { branches } = repo ?? {};

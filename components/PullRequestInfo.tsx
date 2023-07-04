@@ -1,9 +1,10 @@
+'use client';
 import React from 'react';
 import { Link, VStack } from '@chakra-ui/react';
 
-import { Maybe } from '../restinpeace/types';
-import { fetchRepoPullRequestsAssociatedWithCommit } from '../restinpeace/github';
-import { createResource } from '../cache/reactCache';
+import { Maybe } from 'restinpeace/types';
+import { fetchRepoPullRequestsAssociatedWithCommit } from 'restinpeace/github';
+import { createResource } from 'cache/reactCache';
 import { useUserRepo } from './useUserRepoFromRoute';
 
 export type PullRequestInfoProps = {
@@ -23,11 +24,11 @@ const getPR = createResource(
 );
 
 export default function PullRequestInfo({ pullRequest, sha }: PullRequestInfoProps) {
-    const { userName, repoName } = useUserRepo();
+    const { userName = 'user', repoName = 'repo' } = useUserRepo();
 
     // load on-demand, if no pullRequest given
     const { number, title, url, html_url } =
-        pullRequest ?? getPR.read(null, { userName, repoName, sha })?.find?.(Boolean) ?? {};
+        pullRequest ?? getPR.read({ userName, repoName, sha })?.find?.(Boolean) ?? {};
 
     return (
         <VStack width="6em">

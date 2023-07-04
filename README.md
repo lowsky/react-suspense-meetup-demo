@@ -6,19 +6,21 @@ There are these different modes how the page data are loaded:
 - [One global Suspense](http://localhost:3000/wait-for-all):
 **Waiting until all**: **Waiting until** all data got fetched
 - ["Waterfall"](http://localhost:3000/waterfall): **Incremental Loading**: More than 1 Suspense in the tree hierarchy:
-- [Side-by-Side](http://localhost:3000/side-by-side): Show both, incremental loading and wait-for-all
+- [Side-by-Side](http://localhost:3000/side-by-side): Show both: incremental loading and wait-for-all
 
 ![screenshot.png](public/screenshot-side-to-side.png)
 
-On the right side, there is a Cache-loading inspector ["hitchcock"](https://github.com/pomber/hitchcock#readme) by [@pombo](https://github.com/pomber), based on work of Jared Palmer
+On the right side, there is a Cache-loading inspector ["hitchcock"](https://github.com/pomber/hitchcock#readme) by [@pombo](https://github.com/pomber), based on the work of Jared Palmer
 
 ## Purpose: React Suspense - demo
 
 List the `(feature) branches` of a GitHub repository with its `last commit's`
 
--   linked PR
 -   build status-es
+-   linked PR
 -   commit message and author
+-   linked deployment
+
 ## Getting started
 
 After invoking this in a shell
@@ -26,7 +28,7 @@ After invoking this in a shell
     git clone https://github.com/lowsky/react-suspense-meetup-demo
     cd react-suspense-meetup-demo
 
-    yarn install
+    yarn
 
 then set up the `github-token` (see below: [Setup GitHub Token](#setupgithubtoken) )
 
@@ -34,7 +36,7 @@ before starting local dev mode via:
 
     yarn dev
 
-This runs **next.js** in **dev-mode**
+This runs **Next.js** in **dev-mode**
 
 Now, you can open the home [http://localhost:3000](http://localhost:3000) in your browser.
 
@@ -55,12 +57,13 @@ store it locally in `.env` file
 
 ## Stack
 
--   Next.js
--   React.Suspend
--   React.Cache
+-   [Next.js](https://nextjs.org/)
+-   [ChakraUI](https://chakra-ui.com/) ~~[Bulma](https://bulma.io/)~~
 -   React
--   ChakraUI
--   Typescript
+-   React.Cache
+-   React.Suspend
+-   [Typescript](https://www.typescriptlang.org/)
+
 
 ## License
 

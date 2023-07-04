@@ -22,11 +22,11 @@ export const getCommitsForRepo = async (
     return commits.data;
 };
 
-export const getStatusesForRepo = async (username, reponame, sha): Promise<Array<GithubStatus>> => {
+export const getStatusesForRepo = async (owner, repo, sha): Promise<Array<GithubStatus>> => {
     const statuses = await octo.repos.listCommitStatusesForRef({
         ref: sha,
-        repo: reponame,
-        owner: username,
+        repo,
+        owner,
     });
 
     return statuses.data;
@@ -104,7 +104,7 @@ export interface Commit {
     url: string;
 }
 
-type Branch = {
+export type Branch = {
     commit: Commit;
     name: string;
 };
@@ -125,6 +125,7 @@ export const fetchRepoBranches = async (owner: string, repo: string): Promise<Br
 
 export interface User {
     login: string;
+    company?: string|null;
     avatar_url: string;
 }
 
@@ -134,9 +135,7 @@ export interface User {
  * @param username user's login name, e.g. lowsky
  */
 export const fetchUser = async (username: string): Promise<User> =>
-    await octo.users.getByUsername({ username }).then((byUsername) => {
-        return byUsername.data;
-    });
+    await octo.users.getByUsername({ username }).then((response) => response.data);
 
 export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({
     userName,

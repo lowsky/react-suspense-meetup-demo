@@ -1,12 +1,14 @@
+'use client';
+
 import React, { Context, createContext, ReactNode, useContext } from 'react';
-import { useRouter } from 'next/router';
+import { useParams } from 'next/navigation';
 
 const UserRepoContext: Context<{
     repoName: string;
     userName: string;
 }> = createContext({
-    repoName: 'context used without',
-    userName: 'context',
+    repoName: 'invalid,empty-context',
+    userName: 'invalid,empty-context',
 });
 
 export function useUserRepo(): { repoName: string; userName: string } {
@@ -21,9 +23,8 @@ export function UserRepoFromUrlProvider({ children }: { children: ReactNode }) {
     return <UserRepoContext.Provider value={{ userName, repoName }}>{children}</UserRepoContext.Provider>;
 }
 
-function useUserRepoFromRouter(): { repoName?: string; userName?: string } {
-    const router = useRouter();
-    const { userName, repoName } = router.query;
+export function useUserRepoFromRouter(): { repoName?: string; userName?: string } {
+    const { repoName, userName } = useParams() ?? {};
 
     if (!userName || !repoName) return {};
 

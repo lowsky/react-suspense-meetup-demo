@@ -4,11 +4,11 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Icon, Link, Td, Tr, VStack } from '@chakra-ui/react';
 
-import { GithubBranch, Maybe } from '../restinpeace/types';
-import { useUserRepo } from '../components/useUserRepoFromRoute';
-import { Spinner } from '../components/Spinner';
-import PullRequestInfo from '../components/PullRequestInfo';
-import CommitWithStatuses, { CommitWithStatusesSkeleton } from '../components/CommitWithStatuses';
+import { GithubBranch, Maybe } from 'restinpeace/types';
+import { useUserRepo } from 'components/useUserRepoFromRoute';
+import { Spinner } from 'components/Spinner';
+import PullRequestInfo from 'components/PullRequestInfo';
+import CommitWithStatuses, { CommitWithStatusesSkeleton } from 'components/CommitWithStatuses';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
@@ -25,6 +25,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
 
     const branchUrlValid = userName && repoName;
 
+    const main = name === 'master' || name === 'main';
     return (
         <Tr key={name}>
             <Td>
@@ -38,17 +39,19 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                 </Icon>
             </Td>
             <Td>
-                <Suspense
-                    fallback={
-                        <VStack width="6em">
-                            <Spinner size={8} />
-                        </VStack>
-                    }>
-                    {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
-                        <PullRequestInfo key={idx} pullRequest={pr!} />
-                    ))}
-                    {!associatedPullRequests && <PullRequestInfo sha={sha} />}
-                </Suspense>
+                {!main && (
+                    <Suspense
+                        fallback={
+                            <VStack width="6em">
+                                <Spinner size={8} />
+                            </VStack>
+                        }>
+                        {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
+                            <PullRequestInfo key={idx} pullRequest={pr!} />
+                        ))}
+                        {!associatedPullRequests && <PullRequestInfo sha={sha} />}
+                    </Suspense>
+                )}
             </Td>
 
             <Td>
