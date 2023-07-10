@@ -2067,12 +2067,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:11.0.0":
-  version: 11.0.0
-  resolution: "@octokit/types@npm:11.0.0"
+"@octokit/types@npm:11.1.0":
+  version: 11.1.0
+  resolution: "@octokit/types@npm:11.1.0"
   dependencies:
     "@octokit/openapi-types": ^18.0.0
-  checksum: 415717e782736eb634ff7e893b592f749c371116fdde4802cb0fb594d654c48de4ded6ebc64ab82e2394ca44e8f4f9ac47431c7221aa30d911f9e06ce455c810
+  checksum: 72627a94ddaf7bc14db06572bcde67649aad608cd86548818380db9305f4c0ca9ca078a62dd883858a267e8ec8fd596a0fce416aa04197c439b9548efef609a7
   languageName: node
   linkType: hard
 
@@ -5706,7 +5706,7 @@ __metadata:
     "@mdx-js/react": 2.3.0
     "@next/mdx": 13.4.7
     "@octokit/rest": 19.0.13
-    "@octokit/types": 11.0.0
+    "@octokit/types": 11.1.0
     "@types/node": 18.16.19
     "@types/react": 18.2.14
     "@types/react-dom": 18.2.6
