@@ -32,11 +32,11 @@
     "@emotion/styled": "11.11.0",
     "@mdx-js/loader": "2.3.0",
     "@mdx-js/react": "2.3.0",
-    "@next/mdx": "13.4.7",
+    "@next/mdx": "13.4.12",
     "@octokit/rest": "19.0.13",
     "framer-motion": "10.12.18",
     "hitchcock": "0.5.0",
-    "next": "13.4.7",
+    "next": "13.4.12",
     "react-cache": "latest"
   },
   "devDependencies": {
@@ -52,7 +52,7 @@
     "@types/react-dom": "18.2.6",
     "csstype": "3.1.2",
     "eslint": "8.44.0",
-    "eslint-config-next": "13.4.7",
+    "eslint-config-next": "13.4.12",
     "eslint-config-prettier": "8.8.0",
     "eslint-plugin-prettier": "4.2.1",
     "prettier": "2.8.8",
