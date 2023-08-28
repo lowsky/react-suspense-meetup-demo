@@ -4,7 +4,8 @@ import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import EmotionRootStyleRegistry from './EmotionRootStyleRegistry';
-import AppWarningGitHubRateLimiting from './WarningGitHubRateLimiting';
+import WarningGitHubRateLimiting from './WarningGitHubRateLimiting';
+import LinkToNewApp from './LinkToNewApp';
 import { NavBar } from 'components/NavBar';
 
 // If loading a variable font, you don't need to specify the font weight
@@ -26,8 +27,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                 <EmotionRootStyleRegistry>
                     <>
                         <NavBar />
-
-                        <AppWarningGitHubRateLimiting />
+                        <LinkToNewApp />
+                        <WarningGitHubRateLimiting />
 
                         {children}
                     </>

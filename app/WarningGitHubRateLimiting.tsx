@@ -3,7 +3,7 @@
 import React from 'react';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 
-export default function AppWarningGitHubRateLimiting() {
+export default function WarningGitHubRateLimiting() {
     return (
         <Alert status="warning">
             <AlertIcon />
