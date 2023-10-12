@@ -2169,10 +2169,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.17.12":
-  version: 18.17.12
-  resolution: "@types/node@npm:18.17.12"
-  checksum: 79f8bcca3067a3c529f30e172df8d14f25ab9e4cd6a05ed897a924ab1dec774e8ea172ef5c4a67ffec433d423a0c81778f17db22606d574bc83871b60aab298e
+"@types/node@npm:18.18.4":
+  version: 18.18.4
+  resolution: "@types/node@npm:18.18.4"
+  checksum: 4901e91c4cc479bb58acbcd79236a97a0ad6db4a53cb1f4ba4cf32af15324c61b16faa6e31c1b09bf538a20feb5f5274239157ce5237f5741db0b9ab71e69c52
   languageName: node
   linkType: hard
 
@@ -5671,7 +5671,7 @@ __metadata:
     "@next/mdx": 13.4.19
     "@octokit/rest": 20.0.1
     "@octokit/types": 11.1.0
-    "@types/node": 18.17.12
+    "@types/node": 18.18.4
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
     csstype: 3.1.2
