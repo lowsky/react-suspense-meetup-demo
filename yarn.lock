@@ -1967,6 +1967,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@octokit/openapi-types@npm:^19.0.0":
+  version: 19.0.0
+  resolution: "@octokit/openapi-types@npm:19.0.0"
+  checksum: 9a8125ab4e1651ca4b2f734cfa15ca52fe9fa0edd87696e4f57dfa2bcd472767f0f8a99b9324be21f863e6cd91afee423982189f97ac018f3c78a83560e616f5
+  languageName: node
+  linkType: hard
+
 "@octokit/plugin-paginate-rest@npm:^8.0.0":
   version: 8.0.0
   resolution: "@octokit/plugin-paginate-rest@npm:8.0.0"
@@ -2034,7 +2041,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:11.1.0, @octokit/types@npm:^11.0.0, @octokit/types@npm:^11.1.0":
+"@octokit/types@npm:12.0.0":
+  version: 12.0.0
+  resolution: "@octokit/types@npm:12.0.0"
+  dependencies:
+    "@octokit/openapi-types": ^19.0.0
+  checksum: ad55e13cbeef96a63d0088df2ed0a8f3ca764db3f877aa2ecb1693de40b03c1f8e392603bd7fddaaaa74138970ea39f46e4b830d15eeeba74be1671f36440129
+  languageName: node
+  linkType: hard
+
+"@octokit/types@npm:^11.0.0, @octokit/types@npm:^11.1.0":
   version: 11.1.0
   resolution: "@octokit/types@npm:11.1.0"
   dependencies:
@@ -5670,7 +5686,7 @@ __metadata:
     "@mdx-js/react": 2.3.0
     "@next/mdx": 13.4.19
     "@octokit/rest": 20.0.1
-    "@octokit/types": 11.1.0
+    "@octokit/types": 12.0.0
     "@types/node": 18.18.4
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
