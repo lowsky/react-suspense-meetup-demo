@@ -2185,10 +2185,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:18.18.4":
-  version: 18.18.4
-  resolution: "@types/node@npm:18.18.4"
-  checksum: 4901e91c4cc479bb58acbcd79236a97a0ad6db4a53cb1f4ba4cf32af15324c61b16faa6e31c1b09bf538a20feb5f5274239157ce5237f5741db0b9ab71e69c52
+"@types/node@npm:18.18.10":
+  version: 18.18.10
+  resolution: "@types/node@npm:18.18.10"
+  dependencies:
+    undici-types: ~5.26.4
+  checksum: 1245a14a38bfbe115b8af9792dbe87a1c015f2532af5f0a25a073343fefa7b2edfd95ff3830003d1a1278ce7f9ee0e78d4e5454d7a60af65832c8d77f4032ac8
   languageName: node
   linkType: hard
 
@@ -5687,7 +5689,7 @@ __metadata:
     "@next/mdx": 13.4.19
     "@octokit/rest": 20.0.2
     "@octokit/types": 12.0.0
-    "@types/node": 18.18.4
+    "@types/node": 18.18.10
     "@types/react": 18.2.21
     "@types/react-dom": 18.2.7
     csstype: 3.1.2
@@ -6344,6 +6346,13 @@ __metadata:
     has-symbols: ^1.0.3
     which-boxed-primitive: ^1.0.2
   checksum: b7a1cf5862b5e4b5deb091672ffa579aa274f648410009c81cca63fed3b62b610c4f3b773f912ce545bb4e31edc3138975b5bc777fc6e4817dca51affb6380e9
+  languageName: node
+  linkType: hard
+
+"undici-types@npm:~5.26.4":
+  version: 5.26.5
+  resolution: "undici-types@npm:5.26.5"
+  checksum: 3192ef6f3fd5df652f2dc1cd782b49d6ff14dc98e5dced492aa8a8c65425227da5da6aafe22523c67f035a272c599bb89cfe803c1db6311e44bed3042fc25487
   languageName: node
   linkType: hard
 
