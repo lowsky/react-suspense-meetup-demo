@@ -125,7 +125,7 @@ export const fetchRepoBranches = async (owner: string, repo: string): Promise<Br
 
 export interface User {
     login: string;
-    company?: string|null;
+    company?: string | null;
     avatar_url: string;
 }
 

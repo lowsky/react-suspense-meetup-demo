@@ -2,11 +2,11 @@
 
 There are these different modes how the page data are loaded:
 
-- [Classic way without Suspense](http://localhost:3000/restful): **All or nothing**: Fetching all data in place within a `useEffect()` + props-drilling
-- [One global Suspense](http://localhost:3000/wait-for-all):
-**Waiting until all**: **Waiting until** all data got fetched
-- ["Waterfall"](http://localhost:3000/waterfall): **Incremental Loading**: More than 1 Suspense in the tree hierarchy:
-- [Side-by-Side](http://localhost:3000/side-by-side): Show both: incremental loading and wait-for-all
+-   [Classic way without Suspense](http://localhost:3000/restful): **All or nothing**: Fetching all data in place within a `useEffect()` + props-drilling
+-   [One global Suspense](http://localhost:3000/wait-for-all):
+    **Waiting until all**: **Waiting until** all data got fetched
+-   ["Waterfall"](http://localhost:3000/waterfall): **Incremental Loading**: More than 1 Suspense in the tree hierarchy:
+-   [Side-by-Side](http://localhost:3000/side-by-side): Show both: incremental loading and wait-for-all
 
 ![screenshot.png](public/screenshot-side-to-side.png)
 
@@ -54,7 +54,6 @@ store it locally in `.env` file
     # typically something like
     # GITHUB_TOKEN=ghp_....
 
-
 ## Stack
 
 -   [Next.js](https://nextjs.org/)
@@ -63,7 +62,6 @@ store it locally in `.env` file
 -   React.Cache
 -   React.Suspend
 -   [Typescript](https://www.typescriptlang.org/)
-
 
 ## License
 
