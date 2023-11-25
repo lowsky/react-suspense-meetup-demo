@@ -1,5 +1,5 @@
-import { Octokit } from '@octokit/rest';
 import { GetResponseDataTypeFromEndpointMethod, GetResponseTypeFromEndpointMethod } from '@octokit/types';
+import { Octokit } from '@octokit/rest';
 
 import { GithubCommit, GithubStatus } from './types';
 
@@ -8,6 +8,30 @@ const NEXT_PUBLIC_GITHUB_TOKEN = process.env.NEXT_PUBLIC_GITHUB_TOKEN;
 export const octo = new Octokit({
     auth: NEXT_PUBLIC_GITHUB_TOKEN,
 });
+
+export interface User {
+    login: string;
+    company?: string | null;
+    avatar_url: string;
+}
+
+export type Branch = {
+    commit: Commit;
+    name: string;
+};
+export type Branches = Branch[];
+
+export interface Commit {
+    sha: string;
+    url: string;
+}
+
+type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpointMethod<
+    typeof octo.repos.listPullRequestsAssociatedWithCommit
+>;
+export type ListPullRequestsAssociatedWithCommitResponseDataType = GetResponseDataTypeFromEndpointMethod<
+    typeof octo.repos.listPullRequestsAssociatedWithCommit
+>;
 
 export const getCommitsForRepo = async (
     username: string,
@@ -31,13 +55,6 @@ export const getStatusesForRepo = async (owner, repo, sha): Promise<Array<Github
 
     return statuses.data;
 };
-
-type ListPullRequestsAssociatedWithCommitResponseType = GetResponseTypeFromEndpointMethod<
-    typeof octo.repos.listPullRequestsAssociatedWithCommit
->;
-export type ListPullRequestsAssociatedWithCommitResponseDataType = GetResponseDataTypeFromEndpointMethod<
-    typeof octo.repos.listPullRequestsAssociatedWithCommit
->;
 
 /**
  * Fetch the PR info for a given repo
@@ -99,18 +116,6 @@ export const fetchCommitStatuses: (commit: {
     return (await getStatusesForRepo(ownerUsername, reponame, sha)) ?? [];
 };
 
-export interface Commit {
-    sha: string;
-    url: string;
-}
-
-export type Branch = {
-    commit: Commit;
-    name: string;
-};
-
-export type Branches = Branch[];
-
 /**
  * Fetch the branches for a given repo
  *
@@ -122,12 +127,6 @@ export const fetchRepoBranches = async (owner: string, repo: string): Promise<Br
     const branches = await listBranches;
     return await branches.data;
 };
-
-export interface User {
-    login: string;
-    company?: string | null;
-    avatar_url: string;
-}
 
 /**
  * Fetch the user info for a given login

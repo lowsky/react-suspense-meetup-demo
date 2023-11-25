@@ -1,4 +1,6 @@
 'use client';
+import { ReactNode } from 'react';
+import { useParams, usePathname } from 'next/navigation';
 
 import {
     Box,
@@ -17,8 +19,6 @@ import {
 import { CloseIcon, HamburgerIcon, MoonIcon, SunIcon } from '@chakra-ui/icons';
 
 import InternalLink from './InternalLink';
-import { useParams } from 'next/navigation';
-import { ReactNode } from 'react';
 
 export function NavBar() {
     const params = useParams();
@@ -70,13 +70,17 @@ export function NavBar() {
 }
 
 const DesktopNav = ({ owner, repo }) => {
+    const pathname = usePathname();
     return (
         <Stack direction="row" spacing={4} align="center">
             <InternalLink href="/">Home</InternalLink>
-
             {owner && repo && <strong>{repo}</strong>}
             {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
-                <InternalLink key={href} href={href ?? '#'}>
+                <InternalLink
+                    key={href}
+                    href={href ?? '#'}
+                    fontWeight={pathname === href ? 'bold' : ''}
+                    textDecoration={pathname === href ? 'underline' : ''}>
                     {label}
                 </InternalLink>
             ))}
@@ -154,10 +158,6 @@ function DarkLightThemeToggle() {
     const { colorMode, toggleColorMode } = useColorMode();
     const colorModeValue = useColorModeValue('white', 'gray.800');
 
-    // at the moment, the chakra theme support is not fully working -> disabling
-    if (true) {
-        return null;
-    }
     return (
         <Box bg={colorModeValue} px={4}>
             <Flex h={8} alignItems="center" justifyContent="space-between">
