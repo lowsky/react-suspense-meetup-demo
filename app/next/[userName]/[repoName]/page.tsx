@@ -3,9 +3,10 @@
 import React, { cache } from 'react';
 
 import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
+
 import { RepoType } from 'components/Repo';
-import InternalLink from 'components/InternalLink';
 import { AsyncUserRepo } from 'container/AsyncUserRepo';
+import InternalLink from 'components/InternalLink';
 
 export const revalidate = 60;
 

@@ -18,6 +18,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "format": "prettier . --cache -l -w",
     "lint": "next lint"
   },
   "author": "Robert Hostlowsky",

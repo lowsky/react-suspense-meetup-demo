@@ -1,14 +1,13 @@
 import React, { Suspense } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub } from '@fortawesome/free-brands-svg-icons';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { Icon, Link, Td, Tr, VStack } from '@chakra-ui/react';
 
 import { GithubBranch, Maybe } from 'restinpeace/types';
 import { useUserRepo } from 'components/useUserRepoFromRoute';
 import { Spinner } from 'components/Spinner';
 import PullRequestInfo from 'components/PullRequestInfo';
-import CommitWithStatuses, { CommitWithStatusesSkeleton } from 'components/CommitWithStatuses';
+import CommitWithStatuses, { CommitWithStatusesSkeleton } from 'components/CommitWithStatuses/CommitWithStatuses';
 
 export interface BranchInfoRowProps {
     branch: GithubBranch;
@@ -35,7 +34,7 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                     </Link>
                 )}
                 <Icon ml={1}>
-                    <FontAwesomeIcon icon={faGithub as IconProp} />
+                    <FontAwesomeIcon icon={faGithub} />
                 </Icon>
             </Td>
             <Td>
@@ -46,9 +45,9 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                                 <Spinner size={8} />
                             </VStack>
                         }>
-                        {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
-                            <PullRequestInfo key={idx} pullRequest={pr!} />
-                        ))}
+                        {associatedPullRequests
+                            ?.filter?.(Boolean)
+                            .map((pr, idx) => <PullRequestInfo key={idx} pullRequest={pr!} />)}
                         {!associatedPullRequests && <PullRequestInfo sha={sha} />}
                     </Suspense>
                 )}

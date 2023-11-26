@@ -4,6 +4,7 @@ import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
 import EmotionRootStyleRegistry from './EmotionRootStyleRegistry';
+import ColorModeScriptClient from './ColorModeScriptClient';
 import WarningGitHubRateLimiting from './WarningGitHubRateLimiting';
 import LinkToNewApp from './LinkToNewApp';
 import { NavBar } from 'components/NavBar';
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={inter.className}>
             <body>
                 <noscript>You need to enable JavaScript to run this app.</noscript>
+                <ColorModeScriptClient />
                 <EmotionRootStyleRegistry>
                     <>
                         <NavBar />

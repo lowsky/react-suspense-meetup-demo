@@ -23,13 +23,11 @@ const BranchesTable: React.FC<BranchesTableProps> = ({ repo }) => {
                 </Tr>
             </Thead>
             <Tbody>
-                {(branches ?? [])
-                    .filter((b) => Boolean(b))
-                    .map((branch, idx) => (
-                        <Suspense key={idx} fallback={<SkeletonRow />}>
-                            <BranchInfoRow key={idx} branch={branch!} sha={branch!.lastCommit?.sha} />
-                        </Suspense>
-                    ))}
+                {(branches ?? []).filter(Boolean).map((branch, idx) => (
+                    <Suspense fallback={<SkeletonRow />} key={idx}>
+                        <BranchInfoRow branch={branch!} sha={branch!.lastCommit?.sha} />
+                    </Suspense>
+                ))}
             </Tbody>
         </Table>
     );
