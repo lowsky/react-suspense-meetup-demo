@@ -3,10 +3,10 @@
 import React, { Suspense, useEffect, useState } from 'react';
 import { Alert, AlertIcon } from '@chakra-ui/react';
 
-import { Branches, fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
 import InternalLink from 'components/InternalLink';
 import UserRepo from 'container/UserRepo';
-import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';
+import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
+import { Branches, fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
 
 export const revalidate = 10;
 

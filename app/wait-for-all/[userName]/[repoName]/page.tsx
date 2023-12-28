@@ -5,8 +5,8 @@ import React, { Suspense } from 'react';
 import InternalLink from 'components/InternalLink';
 import RichErrorBoundary from 'components/RichErrorBoundary';
 import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
-import { UserRepoFetchAll } from 'container/LazyUserRepo';
 import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
+import { UserRepoFetchAll } from 'container/LazyUserRepo';
 
 export const revalidate = 10;
 

@@ -5858,15 +5858,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.3.0-next":
-  version: 18.3.0-next-fecc288b7-20221025
-  resolution: "react-dom@npm:18.3.0-next-fecc288b7-20221025"
+"react-dom@npm:18.2.0":
+  version: 18.2.0
+  resolution: "react-dom@npm:18.2.0"
   dependencies:
     loose-envify: "npm:^1.1.0"
-    scheduler: "npm:0.24.0-next-fecc288b7-20221025"
+    scheduler: "npm:^0.23.0"
   peerDependencies:
-    react: 18.3.0-next-fecc288b7-20221025
-  checksum: 7f7a42ff39613009f531ecb95e4b821588a79cb1f33e942048efdbce866aa73a72c393c472eb99cce3de7dcebf2c0fc88bf10c8c8dde6b444b001b3ce00e39a0
+    react: ^18.2.0
+  checksum: 66dfc5f93e13d0674e78ef41f92ed21dfb80f9c4ac4ac25a4b51046d41d4d2186abc915b897f69d3d0ebbffe6184e7c5876f2af26bfa956f179225d921be713a
   languageName: node
   linkType: hard
 
@@ -6000,19 +6000,19 @@ __metadata:
     hitchcock: "npm:0.5.0"
     next: "npm:14.0.4"
     prettier: "npm:3.1.1"
-    react: "npm:^18.3.0-next"
+    react: "npm:18.2.0"
     react-cache: "npm:latest"
-    react-dom: "npm:^18.3.0-next"
+    react-dom: "npm:18.2.0"
     typescript: "npm:5.3.3"
   languageName: unknown
   linkType: soft
 
-"react@npm:^18.3.0-next":
-  version: 18.3.0-next-fecc288b7-20221025
-  resolution: "react@npm:18.3.0-next-fecc288b7-20221025"
+"react@npm:18.2.0":
+  version: 18.2.0
+  resolution: "react@npm:18.2.0"
   dependencies:
     loose-envify: "npm:^1.1.0"
-  checksum: fe9fdbb64d95d4da4c0ea98061e2413d5d427d616851105bad158fdcd5e694b75eb1a2d9609a8b8dc77a8d813c0ec4a261d488cf4929f43d372b41296f4177e5
+  checksum: b562d9b569b0cb315e44b48099f7712283d93df36b19a39a67c254c6686479d3980b7f013dc931f4a5a3ae7645eae6386b4aa5eea933baa54ecd0f9acb0902b8
   languageName: node
   linkType: hard
 
@@ -6250,12 +6250,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"scheduler@npm:0.24.0-next-fecc288b7-20221025":
-  version: 0.24.0-next-fecc288b7-20221025
-  resolution: "scheduler@npm:0.24.0-next-fecc288b7-20221025"
+"scheduler@npm:^0.23.0":
+  version: 0.23.0
+  resolution: "scheduler@npm:0.23.0"
   dependencies:
     loose-envify: "npm:^1.1.0"
-  checksum: de25d91e743e5246af255723e2c3c723b4c500d6248db490c020889a109dc30f77196eec2c12a4f6836a3ce12325819182ecde619bc7e18a8f7382dbac83b767
+  checksum: b777f7ca0115e6d93e126ac490dbd82642d14983b3079f58f35519d992fa46260be7d6e6cede433a92db70306310c6f5f06e144f0e40c484199e09c1f7be53dd
   languageName: node
   linkType: hard
 
