@@ -1,6 +1,6 @@
 // do not add 'use client' here, because it is using React cache, and the async data loading works only on the server side
 
-import React, { cache } from 'react';
+import React from 'react';
 
 import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
 
@@ -8,14 +8,14 @@ import { RepoType } from 'components/Repo';
 import { AsyncUserRepo } from 'container/AsyncUserRepo';
 import InternalLink from 'components/InternalLink';
 
-export const revalidate = 60;
+export const revalidate = 0; // opt out of route caching
 
 interface Props {
     userData: Promise<User>;
     repoData: Promise<RepoType>;
 }
 
-// @ts-ignore - not used in production
+// @ts-ignore do not use in production
 function delay(timeout) {
     return new Promise((resolve) => {
         setTimeout(resolve, timeout);
@@ -45,19 +45,19 @@ async function ReactNext({ repoData, userData }: Props) {
     return <AsyncUserRepo userData={userData} repoData={repoData} />;
 }
 
-const fetchUserPromise: (userName) => Promise<User> = cache(async (userName) => {
+const fetchUserPromise: (userName) => Promise<User> = async (userName) => {
     await delay(2000);
     return fetchUser(userName);
-});
-const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = cache(async ({ userName, repoName }) => {
+};
+
+const fetchRepoBranches: ({ userName, repoName }) => Promise<RepoType> = async ({ userName, repoName }) => {
     await delay(2000);
     return fetchRepoBranchesWithCommitStatusesAndPullRequestsProm({ userName, repoName });
-});
+};
 
-const fetchRepoBranchesWithCommitStatusesAndPullRequestsProm = cache(async ({ userName, repoName }) =>
+const fetchRepoBranchesWithCommitStatusesAndPullRequestsProm = async ({ userName, repoName }) =>
     fetchRepoBranchesWithCommitStatusesAndPullRequests({ userName, repoName }).then((branchesWithCommit) => ({
         name: repoName,
         owner: { login: userName },
         branches: branchesWithCommit.branches,
-    }))
-);
+    }));

@@ -2,12 +2,14 @@ import React from 'react';
 
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
 
-import EmotionRootStyleRegistry from './EmotionRootStyleRegistry';
+import ChakraUIWrapper from './ChakraUIWrapper';
 import ColorModeScriptClient from './ColorModeScriptClient';
 import WarningGitHubRateLimiting from './WarningGitHubRateLimiting';
 import LinkToNewApp from './LinkToNewApp';
 import { NavBar } from 'components/NavBar';
+import { Box } from 'components/ChakraMdxProvider';
 
 // If loading a variable font, you don't need to specify the font weight
 const inter = Inter({
@@ -25,16 +27,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={inter.className}>
             <body>
                 <noscript>You need to enable JavaScript to run this app.</noscript>
+                <NextTopLoader />
                 <ColorModeScriptClient />
-                <EmotionRootStyleRegistry>
-                    <>
-                        <NavBar />
-                        <LinkToNewApp />
-                        <WarningGitHubRateLimiting />
+                <ChakraUIWrapper>
+                    <NavBar />
+                    <LinkToNewApp />
+                    <WarningGitHubRateLimiting />
 
-                        {children}
-                    </>
-                </EmotionRootStyleRegistry>
+                    <Box p={4}>{children}</Box>
+                </ChakraUIWrapper>
             </body>
         </html>
     );
