@@ -60,7 +60,7 @@
     "prettier": "3.2.5",
     "react": "^18.3.0-next",
     "react-dom": "^18.3.0-next",
-    "typescript": "5.3.3"
+    "typescript": "5.4.2"
   },
   "packageManager": "yarn@4.1.0"
 }
