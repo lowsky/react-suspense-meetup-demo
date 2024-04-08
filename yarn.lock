@@ -5617,9 +5617,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextjs-toploader@npm:1.6.10":
-  version: 1.6.10
-  resolution: "nextjs-toploader@npm:1.6.10"
+"nextjs-toploader@npm:1.6.11":
+  version: 1.6.11
+  resolution: "nextjs-toploader@npm:1.6.11"
   dependencies:
     "@types/nprogress": "npm:^0.2.2"
     nprogress: "npm:^0.2.0"
@@ -5628,7 +5628,7 @@ __metadata:
     next: ">= 6.0.0"
     react: ">= 16.0.0"
     react-dom: ">= 16.0.0"
-  checksum: 10c0/11f8e50ffbc99d742d009d4f726d7275edffeea9db45884ff7aa416ca4c7eaf0c4a77c14038c3417b1bd69e3fd70715142d9233fcc960a767cc163e5b01c51d9
+  checksum: 10c0/02884ceccac931ff158c894e06500207f5407937d7930d133109a6eb395b7fd00f75fa9201d71f7d87bd40e7ff0ee7fa2a4ed1f1e677bd14e4bac1cdf35285a1
   languageName: node
   linkType: hard
 
@@ -6141,7 +6141,7 @@ __metadata:
     framer-motion: "npm:11.0.8"
     hitchcock: "npm:0.5.0"
     next: "npm:14.1.4"
-    nextjs-toploader: "npm:1.6.10"
+    nextjs-toploader: "npm:1.6.11"
     prettier: "npm:3.2.5"
     react: "npm:^18.3.0-next"
     react-cache: "npm:latest"
