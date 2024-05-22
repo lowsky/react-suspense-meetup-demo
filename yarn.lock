@@ -2246,12 +2246,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:20.11.20":
-  version: 20.11.20
-  resolution: "@types/node@npm:20.11.20"
+"@types/node@npm:20.12.12":
+  version: 20.12.12
+  resolution: "@types/node@npm:20.12.12"
   dependencies:
     undici-types: "npm:~5.26.4"
-  checksum: 10c0/8e8de211e6d54425c603388a9b5cc9c434101985d0a1c88aabbf65d10df2b1fccd71855c20e61ae8a75c7aea56cb0f64e722cf7914cff1247d0b62ce21996ac4
+  checksum: 10c0/f374b763c744e8f16e4f38cf6e2c0eef31781ec9228c9e43a6f267880fea420fab0a238b59f10a7cb3444e49547c5e3785787e371fc242307310995b21988812
   languageName: node
   linkType: hard
 
@@ -6142,7 +6142,7 @@ __metadata:
     "@next/mdx": "npm:14.2.3"
     "@octokit/rest": "npm:20.0.2"
     "@octokit/types": "npm:13.5.0"
-    "@types/node": "npm:20.11.20"
+    "@types/node": "npm:20.12.12"
     "@types/react": "npm:18.3.2"
     "@types/react-dom": "npm:18.3.0"
     csstype: "npm:3.1.3"
