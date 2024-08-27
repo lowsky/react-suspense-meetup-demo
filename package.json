@@ -38,7 +38,7 @@
     "framer-motion": "11.3.24",
     "hitchcock": "0.5.0",
     "next": "14.2.5",
-    "nextjs-toploader": "1.6.12",
+    "nextjs-toploader": "2.6.12",
     "react-cache": "latest"
   },
   "devDependencies": {
