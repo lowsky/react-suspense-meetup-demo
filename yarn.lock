@@ -5686,9 +5686,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nextjs-toploader@npm:1.6.12":
-  version: 1.6.12
-  resolution: "nextjs-toploader@npm:1.6.12"
+"nextjs-toploader@npm:3.6.15":
+  version: 3.6.15
+  resolution: "nextjs-toploader@npm:3.6.15"
   dependencies:
     nprogress: "npm:^0.2.0"
     prop-types: "npm:^15.8.1"
@@ -5696,7 +5696,7 @@ __metadata:
     next: ">= 6.0.0"
     react: ">= 16.0.0"
     react-dom: ">= 16.0.0"
-  checksum: 10c0/0ea939842800df92da1844a2bc63a6a2d190d12156b84f758d9117fab47e23809766e6791c3a3f27093656588b09616e8e9d97f17d0555c3ba2b7f48fe1eb7dc
+  checksum: 10c0/f7a40227ef2e579aa6742af7a6e98cb3109b145d5c8fb0eee36008bef33f7e22cac4ae0b6712cfbddf4bccdebc480eb8720fb077a04e871a6d98d7fcfcb1c6ee
   languageName: node
   linkType: hard
 
@@ -6193,7 +6193,7 @@ __metadata:
     framer-motion: "npm:11.5.4"
     hitchcock: "npm:0.5.0"
     next: "npm:14.2.11"
-    nextjs-toploader: "npm:1.6.12"
+    nextjs-toploader: "npm:3.6.15"
     prettier: "npm:3.3.3"
     react: "npm:^18.3.0-next"
     react-cache: "npm:latest"
@@ -6967,11 +6967,11 @@ __metadata:
 
 "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>":
   version: 5.6.2
-  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=74658d"
+  resolution: "typescript@patch:typescript@npm%3A5.6.2#optional!builtin<compat/typescript>::version=5.6.2&hash=8c6c40"
   bin:
     tsc: bin/tsc
     tsserver: bin/tsserver
-  checksum: 10c0/e6c1662e4852e22fe4bbdca471dca3e3edc74f6f1df043135c44a18a7902037023ccb0abdfb754595ca9028df8920f2f8492c00fc3cbb4309079aae8b7de71cd
+  checksum: 10c0/94eb47e130d3edd964b76da85975601dcb3604b0c848a36f63ac448d0104e93819d94c8bdf6b07c00120f2ce9c05256b8b6092d23cf5cf1c6fa911159e4d572f
   languageName: node
   linkType: hard
 
