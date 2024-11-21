@@ -240,9 +240,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:3.1.2":
-  version: 3.1.2
-  resolution: "@chakra-ui/react@npm:3.1.2"
+"@chakra-ui/react@npm:3.2.0":
+  version: 3.2.0
+  resolution: "@chakra-ui/react@npm:3.2.0"
   dependencies:
     "@ark-ui/react": "npm:4.4.3"
     "@emotion/is-prop-valid": "npm:1.3.1"
@@ -255,7 +255,7 @@ __metadata:
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/6bfb484452214d4377b484a6ecff03b11c495f39077f55b1ebc7358d4b0c7eee6c1cbc0b2bc93c44b2e21bab711f0fb2ed0ee07078ae9c948b1dd7f14afffb05
+  checksum: 10c0/73e38ea9f74b0b0430256940231e371802f03da68dca0970543045032d2a7319c6f494396e78e0981a3ff03d8d9c485769cbe3f7495094fd4357dd0245a74d81
   languageName: node
   linkType: hard
 
@@ -6491,7 +6491,7 @@ __metadata:
   dependencies:
     "@chakra-ui/icons": "npm:2.2.4"
     "@chakra-ui/next-js": "npm:2.4.2"
-    "@chakra-ui/react": "npm:3.1.2"
+    "@chakra-ui/react": "npm:3.2.0"
     "@chakra-ui/system": "npm:2.6.2"
     "@emotion/react": "npm:11.13.3"
     "@emotion/styled": "npm:11.13.0"
