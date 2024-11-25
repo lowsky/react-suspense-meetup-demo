@@ -70,15 +70,15 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
 export default BranchInfoRow;
 
 export const SkeletonRow = () => (
-    <Tr>
-        <Td>
+    <Table.Row>
+        <Table.Cell>
             <Spinner />
-        </Td>
-        <Td>
+        </Table.Cell>
+        <Table.Cell>
             <Spinner />
-        </Td>
-        <Td>
+        </Table.Cell>
+        <Table.Cell>
             <Spinner />
-        </Td>
-    </Tr>
+        </Table.Cell>
+    </Table.Row>
 );

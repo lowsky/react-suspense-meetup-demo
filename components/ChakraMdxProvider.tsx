@@ -1,15 +1,16 @@
 'use client';
 import Image from 'next/image';
-import { Box as ChakraBox, Code as ChakraCode, Heading, Text } from '@chakra-ui/react';
+import { Box as ChakraBox, BoxProps, Code as ChakraCode, Heading, Text } from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
 
-export function Box({ children, ...props }) {
-    return <ChakraBox {...props}>{children}</ChakraBox>;
+export function Box(props: BoxProps) {
+    return <ChakraBox {...props} />;
 }
 
 export function H1({ children, ...props }) {
     return (
+        /* @ts-expect-error variant is not existing or not properly mapped */
         <Heading size="xl" as="h1" variant="grey" {...props}>
             {children}
         </Heading>
@@ -18,6 +19,7 @@ export function H1({ children, ...props }) {
 
 export function H2({ children, ...props }) {
     return (
+        /* @ts-expect-error variant is not existing or not properly mapped */
         <Heading size="lg" as="h2" variant="grey" {...props}>
             {children}
         </Heading>
@@ -41,6 +43,13 @@ export const Code = (props) => <ChakraCode {...props} />;
 export const ResponsiveImage = (props) => <Image alt={props.alt} layout="responsive" {...props} />;
 
 export function Ul(props) {
+    return (
+        <Box pl="4" pb="4">
+            <ul {...props}></ul>
+        </Box>
+    );
+}
+export function Ol(props) {
     return (
         <Box pl="4" pb="4">
             <ul {...props}></ul>
