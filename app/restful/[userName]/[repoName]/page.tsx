@@ -5,7 +5,8 @@ import React, { Suspense, useEffect, useState } from 'react';
 import { Branches, fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
 import InternalLink from 'components/InternalLink';
 import UserRepo from 'container/UserRepo';
-import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';
+import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
+import { Alert } from 'components/ui/alert';
 
 export default function RestfulPage({ params }) {
     const { userName, repoName } = params;

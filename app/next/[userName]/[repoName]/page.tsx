@@ -39,7 +39,6 @@ export default async function Page(props) {
 }
 
 async function ReactNext({ repoData, userData }: Props) {
-    // @ts-expect-error TS2786: Its return type 'Promise<Element>' is not a valid JSX element.
     return <AsyncUserRepo userData={userData} repoData={repoData} />;
 }
 
