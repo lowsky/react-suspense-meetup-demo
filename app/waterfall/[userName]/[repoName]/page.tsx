@@ -7,8 +7,6 @@ import InternalLink from 'components/InternalLink';
 import { UserRepoWaterfall } from 'container/LazyUserRepo';
 import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 
-export const revalidate = 10;
-
 export default function WaterfallPage() {
     return (
         <UserRepoFromUrlProvider>

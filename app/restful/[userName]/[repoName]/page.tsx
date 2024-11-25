@@ -1,14 +1,11 @@
 'use client';
 
 import React, { Suspense, useEffect, useState } from 'react';
-import { Alert, AlertIcon } from '@chakra-ui/react';
 
 import { Branches, fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
 import InternalLink from 'components/InternalLink';
 import UserRepo from 'container/UserRepo';
 import { ContentLoadingFallback } from '../../../../components/ContentLoadingFallback';
-
-export const revalidate = 10;
 
 export default function RestfulPage({ params }) {
     const { userName, repoName } = params;
@@ -81,12 +78,7 @@ function RestfulMain({ userName, repoName }) {
         <>
             <UserRepo user={user} repo={repo} />
 
-            {errorMsg && (
-                <Alert status="error">
-                    <AlertIcon />
-                    {errorMsg}
-                </Alert>
-            )}
+            {errorMsg && <Alert status="error">{errorMsg}</Alert>}
         </>
     );
 }

@@ -8,8 +8,6 @@ import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
 import { UserRepoFetchAll } from 'container/LazyUserRepo';
 import { UserRepoFromUrlProvider } from 'components/useUserRepoFromRoute';
 
-export const revalidate = 10;
-
 export default function LoadAllThenPage() {
     return (
         <>

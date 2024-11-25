@@ -8,8 +8,6 @@ import { RepoType } from 'components/Repo';
 import { AsyncUserRepo } from 'container/AsyncUserRepo';
 import InternalLink from 'components/InternalLink';
 
-export const revalidate = 60;
-
 interface Props {
     userData: Promise<User>;
     repoData: Promise<RepoType>;
