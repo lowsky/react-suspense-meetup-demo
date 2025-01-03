@@ -171,22 +171,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:3.2.3":
-  version: 3.2.3
-  resolution: "@chakra-ui/react@npm:3.2.3"
+"@chakra-ui/react@npm:3.2.4":
+  version: 3.2.4
+  resolution: "@chakra-ui/react@npm:3.2.4"
   dependencies:
     "@ark-ui/react": "npm:4.4.4"
     "@emotion/is-prop-valid": "npm:1.3.1"
-    "@emotion/serialize": "npm:1.3.2"
-    "@emotion/use-insertion-effect-with-fallbacks": "npm:1.1.0"
-    "@emotion/utils": "npm:1.4.1"
+    "@emotion/serialize": "npm:1.3.3"
+    "@emotion/use-insertion-effect-with-fallbacks": "npm:1.2.0"
+    "@emotion/utils": "npm:1.4.2"
     "@pandacss/is-valid-prop": "npm:0.41.0"
     csstype: "npm:3.1.3"
   peerDependencies:
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/0f485581f7270729a9251a72d57d0f38ce9fe908213222b06966c6cfdd206b45d0cabae2034331fa3393ff758160379ba460029462e72605829b04b8fbed3656
+  checksum: 10c0/0b1850689cd25bc871042d37b1a8ec03f715b7e6dd7a22a3055c1141d04a0dd6ff75b7e9cfa37001130aea68993ca61d3300bec9217a5efb15331e01c544915c
   languageName: node
   linkType: hard
 
@@ -337,16 +337,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/serialize@npm:1.3.2":
-  version: 1.3.2
-  resolution: "@emotion/serialize@npm:1.3.2"
+"@emotion/serialize@npm:1.3.3, @emotion/serialize@npm:^1.3.3":
+  version: 1.3.3
+  resolution: "@emotion/serialize@npm:1.3.3"
   dependencies:
     "@emotion/hash": "npm:^0.9.2"
     "@emotion/memoize": "npm:^0.9.0"
     "@emotion/unitless": "npm:^0.10.0"
-    "@emotion/utils": "npm:^1.4.1"
+    "@emotion/utils": "npm:^1.4.2"
     csstype: "npm:^3.0.2"
-  checksum: 10c0/b4873b643721d28b4450f9d77b71e6c8d0109e6825c54fc79e649d2fa438fe4080d2fa696ec8fda421b8e713fcd42306d6197b6121ddd2486ffab8e4b6311ce0
+  checksum: 10c0/b28cb7de59de382021de2b26c0c94ebbfb16967a1b969a56fdb6408465a8993df243bfbd66430badaa6800e1834724e84895f5a6a9d97d0d224de3d77852acb4
   languageName: node
   linkType: hard
 
@@ -360,19 +360,6 @@ __metadata:
     "@emotion/utils": "npm:0.11.3"
     csstype: "npm:^2.5.7"
   checksum: 10c0/70b49a4261a79c2f5675a872cafc41dd102d6f04df76228b5ab6fd8b0b775a90f34b3d2c1c317c1a5e8fb8f3deebd9a5e764518e1968f616348982471e19a411
-  languageName: node
-  linkType: hard
-
-"@emotion/serialize@npm:^1.3.3":
-  version: 1.3.3
-  resolution: "@emotion/serialize@npm:1.3.3"
-  dependencies:
-    "@emotion/hash": "npm:^0.9.2"
-    "@emotion/memoize": "npm:^0.9.0"
-    "@emotion/unitless": "npm:^0.10.0"
-    "@emotion/utils": "npm:^1.4.2"
-    csstype: "npm:^3.0.2"
-  checksum: 10c0/b28cb7de59de382021de2b26c0c94ebbfb16967a1b969a56fdb6408465a8993df243bfbd66430badaa6800e1834724e84895f5a6a9d97d0d224de3d77852acb4
   languageName: node
   linkType: hard
 
@@ -439,16 +426,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/use-insertion-effect-with-fallbacks@npm:1.1.0":
-  version: 1.1.0
-  resolution: "@emotion/use-insertion-effect-with-fallbacks@npm:1.1.0"
-  peerDependencies:
-    react: ">=16.8.0"
-  checksum: 10c0/a883480f3a7139fb4a43e71d3114ca57e2b7ae5ff204e05cd9e59251a113773b8f64eb75d3997726250aca85eb73447638c8f51930734bdd16b96762b65e58c3
-  languageName: node
-  linkType: hard
-
-"@emotion/use-insertion-effect-with-fallbacks@npm:^1.2.0":
+"@emotion/use-insertion-effect-with-fallbacks@npm:1.2.0, @emotion/use-insertion-effect-with-fallbacks@npm:^1.2.0":
   version: 1.2.0
   resolution: "@emotion/use-insertion-effect-with-fallbacks@npm:1.2.0"
   peerDependencies:
@@ -464,14 +442,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@emotion/utils@npm:1.4.1, @emotion/utils@npm:^1.4.1":
-  version: 1.4.1
-  resolution: "@emotion/utils@npm:1.4.1"
-  checksum: 10c0/f4704e0bdf48062fd6eb9c64771c88f521aab1e108a48cb23d65b6438597c63a6945301cef4c43611e79e0e76a304ec5481c31025ea8f573d7ad5423d747602c
-  languageName: node
-  linkType: hard
-
-"@emotion/utils@npm:^1.4.2":
+"@emotion/utils@npm:1.4.2, @emotion/utils@npm:^1.4.2":
   version: 1.4.2
   resolution: "@emotion/utils@npm:1.4.2"
   checksum: 10c0/7d0010bf60a2a8c1a033b6431469de4c80e47aeb8fd856a17c1d1f76bbc3a03161a34aeaa78803566e29681ca551e7bf9994b68e9c5f5c796159923e44f78d9a
@@ -6189,7 +6160,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-suspense-meetup-demo@workspace:."
   dependencies:
-    "@chakra-ui/react": "npm:3.2.3"
+    "@chakra-ui/react": "npm:3.2.4"
     "@emotion/react": "npm:11.14.0"
     "@fortawesome/fontawesome-svg-core": "npm:6.7.1"
     "@fortawesome/free-brands-svg-icons": "npm:6.7.1"
