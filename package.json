@@ -27,7 +27,7 @@
     "url": "https://github.com/lowsky/react-suspense-meetup-demo/issues"
   },
   "dependencies": {
-    "@chakra-ui/react": "3.8.1",
+    "@chakra-ui/react": "3.9.0",
     "@emotion/react": "11.14.0",
     "@mdx-js/loader": "3.1.0",
     "@mdx-js/react": "3.1.0",
