@@ -1121,6 +1121,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@octokit/openapi-types@npm:^24.2.0":
+  version: 24.2.0
+  resolution: "@octokit/openapi-types@npm:24.2.0"
+  checksum: 10c0/8f47918b35e9b7f6109be6f7c8fc3a64ad13a48233112b29e92559e64a564b810eb3ebf81b4cd0af1bb2989d27b9b95cca96e841ec4e23a3f68703cefe62fd9e
+  languageName: node
+  linkType: hard
+
 "@octokit/plugin-paginate-rest@npm:^11.4.2":
   version: 11.4.2
   resolution: "@octokit/plugin-paginate-rest@npm:11.4.2"
@@ -1208,12 +1215,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@octokit/types@npm:13.8.0":
-  version: 13.8.0
-  resolution: "@octokit/types@npm:13.8.0"
+"@octokit/types@npm:13.10.0":
+  version: 13.10.0
+  resolution: "@octokit/types@npm:13.10.0"
   dependencies:
-    "@octokit/openapi-types": "npm:^23.0.1"
-  checksum: 10c0/e08c2fcf10e374f18e4c9fa12a6ada33a40f112d1209012a39f0ce40ae7aa9dcf0598b6007b467f63cc4a97e7b1388d6eed34ddef61494655e08b5a95afaad97
+    "@octokit/openapi-types": "npm:^24.2.0"
+  checksum: 10c0/f66a401b89d653ec28e5c1529abdb7965752db4d9d40fa54c80e900af4c6bf944af6bd0a83f5b4f1eecb72e3d646899dfb27ffcf272ac243552de7e3b97a038d
   languageName: node
   linkType: hard
 
@@ -6692,7 +6699,7 @@ __metadata:
     "@mdx-js/react": "npm:3.1.0"
     "@next/mdx": "npm:15.2.3"
     "@octokit/rest": "npm:21.1.1"
-    "@octokit/types": "npm:13.8.0"
+    "@octokit/types": "npm:13.10.0"
     "@types/node": "npm:22.13.10"
     "@types/react": "npm:19.0.11"
     "@types/react-dom": "npm:19.0.4"
