@@ -29,8 +29,8 @@
   "dependencies": {
     "@chakra-ui/react": "3.25.0",
     "@emotion/react": "11.14.0",
-    "@mdx-js/loader": "3.1.0",
-    "@mdx-js/react": "3.1.0",
+    "@mdx-js/loader": "3.1.1",
+    "@mdx-js/react": "3.1.1",
     "@next/mdx": "15.5.2",
     "@octokit/rest": "22.0.0",
     "hitchcock": "0.5.0",
