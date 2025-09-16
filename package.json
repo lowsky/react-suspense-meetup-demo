@@ -46,7 +46,7 @@
     "@fortawesome/free-solid-svg-icons": "7.0.1",
     "@fortawesome/react-fontawesome": "3.0.2",
     "@octokit/types": "14.1.0",
-    "@types/node": "22.18.1",
+    "@types/node": "22.18.4",
     "@types/react": "19.1.12",
     "@types/react-dom": "19.1.9",
     "csstype": "3.1.3",
