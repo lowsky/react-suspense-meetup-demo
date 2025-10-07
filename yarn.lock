@@ -181,9 +181,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:3.27.0":
-  version: 3.27.0
-  resolution: "@chakra-ui/react@npm:3.27.0"
+"@chakra-ui/react@npm:3.27.1":
+  version: 3.27.1
+  resolution: "@chakra-ui/react@npm:3.27.1"
   dependencies:
     "@ark-ui/react": "npm:^5.24.1"
     "@emotion/is-prop-valid": "npm:^1.3.1"
@@ -197,7 +197,7 @@ __metadata:
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/1537be90ca227eaa81d10eb6c4d795f2360ec05a3b4e2e39f88c0e368249e2c0c4255fc158e67caa332c98a95d182d428a736cf6e3cd00e7689660ec532c8d16
+  checksum: 10c0/590055ed0b5a4c47ce6db4830df1e54ba728287a776c4902b84444dd20167b3283dcc376903ef9e34165ef07a046ac77806802d7daa2b6d973cef005940772e2
   languageName: node
   linkType: hard
 
@@ -6716,7 +6716,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-suspense-meetup-demo@workspace:."
   dependencies:
-    "@chakra-ui/react": "npm:3.27.0"
+    "@chakra-ui/react": "npm:3.27.1"
     "@emotion/react": "npm:11.14.0"
     "@fortawesome/fontawesome-svg-core": "npm:7.0.1"
     "@fortawesome/free-brands-svg-icons": "npm:7.0.1"
