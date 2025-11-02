@@ -1,14 +1,16 @@
 {
   "compilerOptions": {
-    "skipLibCheck": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
     "allowJs": false,
     "allowSyntheticDefaultImports": true,
     "alwaysStrict": true,
     "esModuleInterop": true,
-    "lib": ["dom", "es2017"],
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "lib": [
+      "dom",
+      "es2017"
+    ],
     "module": "esnext",
     "moduleResolution": "node",
     "noEmit": true,
@@ -16,8 +18,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
+    "skipLibCheck": true,
+    "strict": true,
     "noImplicitAny": false,
     "target": "esnext",
     "incremental": true,
@@ -26,8 +28,27 @@
         "name": "next"
       }
     ],
+    "paths": {
+      "components/*": [
+        "components/*"
+      ],
+      "container/*": [
+        "container/*"
+      ],
+      "lib/*": [
+        "lib/*"
+      ]
+    },
     "baseUrl": "."
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/dev/types/**/*.ts",
+    ".next/types/**/*.ts"
+  ]
 }

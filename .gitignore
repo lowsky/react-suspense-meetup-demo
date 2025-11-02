@@ -1,12 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
-# dependencies
-/node_modules
-/.pnp
-.pnp.js
-
 # testing
 /coverage
+
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
 
 # next.js
 /.next/
@@ -17,7 +17,7 @@
 
 # misc
 .DS_Store
-*.pem
+.idea/
 
 # debug
 npm-debug.log*
@@ -35,6 +35,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
 # yarn2 (berry)
 #
 # not using Zero-Installs
