@@ -5,8 +5,8 @@ import { Flex } from '@chakra-ui/react';
 
 import RichErrorBoundary from 'components/RichErrorBoundary';
 import { Spinner } from 'components/Spinner';
-import Repo, { RepoType } from 'components/Repo';
-import User, { UserType } from 'components/User';
+import Repo , { type RepoType } from 'components/Repo';
+import User, { type UserType } from 'components/User';
 
 import BranchesTable from './BranchesTable';
 

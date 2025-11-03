@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import React, { Suspense, use } from 'react';
 import { Center, Heading, HStack } from '@chakra-ui/react';
 
 import { Spinner } from 'components/Spinner';
@@ -13,8 +13,9 @@ import { UserRepoFetchAll, UserRepoWaterfall } from 'container/LazyUserRepo';
 
 import styles from './side-by-side.module.css';
 
-function SideBySide(props) {
-    const { userName, repoName } = props.params;
+function SideBySide({ params }) {
+    // @ts-expect-error userName and repoName not part of the params type.
+    const { userName, repoName } = use(params);
     return (
         <UserRepoFromUrlProvider>
             <p>

@@ -8,11 +8,11 @@ import CacheInspector from 'cache/CacheInspector';
 export default function DirectorLayout({ children }) {
     return (
         <Box p="5">
-            {!(typeof window === 'undefined') && (
+            {globalThis.window !== undefined && (
                 // inject the hitchcock debug-tool for the async fetching
                 <CacheInspector>{children}</CacheInspector>
             )}
-            {typeof window === 'undefined' && (
+            {globalThis.window === undefined && (
                 // inject the hitchcock debug-tool for the async fetching
                 <>{children}</>
             )}

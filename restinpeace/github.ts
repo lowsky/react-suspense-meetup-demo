@@ -36,13 +36,18 @@ export type ListPullRequestsAssociatedWithCommitResponseDataType = GetResponseDa
 export const getCommitsForRepo = async (
     username: string,
     reponame: string,
-    sha?: string
+    sha?: string,
+    per_page?: number,
+    page?: number
 ): Promise<Array<GithubCommit>> => {
     const commits = await octo.repos.listCommits({
         sha,
+        per_page,
+        page,
         owner: username,
         repo: reponame,
     });
+
     return commits.data;
 };
 
@@ -81,11 +86,9 @@ export function getLastCommit(
     GithubCommit & {
         message: string;
         date: string;
-        ownerUsername: string;
-        reponame: string;
     }
 > {
-    return getCommitsForRepo(ownerUsername, reponame, sha) //
+    return getCommitsForRepo(ownerUsername, reponame, sha, 1, 1) //
         .then((commits) => commits[0])
         .then((commit) => {
             // @ts-expect-error commit is not available in the type - needs fix
@@ -96,8 +99,6 @@ export function getLastCommit(
                 ...commit,
                 message,
                 date,
-                ownerUsername,
-                reponame,
             };
         });
 }
@@ -124,8 +125,10 @@ export const fetchCommitStatuses: (commit: {
  */
 export const fetchRepoBranches = async (owner: string, repo: string): Promise<Branches> => {
     const listBranches = octo.repos.listBranches({ owner, repo });
-    const branches = await listBranches;
-    return await branches.data;
+    const branches = (await listBranches).data;
+    branches.reverse();
+
+    return branches;
 };
 
 /**
@@ -148,27 +151,30 @@ export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({
     branches: Awaited<
         Branch & {
             lastCommit: GithubCommit & {
-                reponame: string;
-                ownerUsername: string;
                 statuses: Array<GithubStatus>;
-                associatedPullRequests: ListPullRequestsAssociatedWithCommitResponseDataType;
             };
+            associatedPullRequests: ListPullRequestsAssociatedWithCommitResponseDataType;
         }
     >[];
 }> {
     const branches: Branches = await fetchRepoBranches(userName, repoName);
 
-    const branchesWithCommitProms = branches.map(async (branch) => {
+    const branchesWithCommitProms: Promise<{
+        commit: Commit;
+        name: string;
+        lastCommit: GithubCommit & {
+            statuses: Array<GithubStatus>;
+        };
+        associatedPullRequests: ListPullRequestsAssociatedWithCommitResponseDataType;
+    }>[] = branches.map(async (branch) => {
         const { sha } = branch.commit;
 
         const lastCommit: GithubCommit & {
             message: string;
             date: string;
-            ownerUsername: string;
-            reponame: string;
         } = await getLastCommit(userName, repoName, sha);
 
-        const statuses: Array<GithubStatus> = await fetchLastCommitStatuses(lastCommit);
+        const statuses: Array<GithubStatus> = await fetchLastCommitStatuses(lastCommit, userName, repoName);
 
         const associatedPullRequests: ListPullRequestsAssociatedWithCommitResponseDataType =
             await fetchRepoPullRequestsAssociatedWithCommit(userName, repoName, sha);
@@ -178,8 +184,8 @@ export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({
             lastCommit: {
                 ...lastCommit,
                 statuses,
-                associatedPullRequests,
             },
+            associatedPullRequests,
         };
     });
 
@@ -187,6 +193,48 @@ export async function fetchRepoBranchesWithCommitStatusesAndPullRequests({
         name: repoName,
         owner: { login: userName },
         branches: await Promise.all(branchesWithCommitProms),
+    };
+}
+
+type BranchEnrichedWithCommitStatuses = {
+    commit: Commit;
+    name: string;
+    lastCommit: GithubCommit & {
+        message: string;
+        date: string;
+    } & {
+        statuses: Array<GithubStatus>;
+    };
+};
+
+function createEnrichWithLastCommitAndStats(
+    userName: string,
+    repoName: string
+): (branch: Branch) => Promise<
+    BranchEnrichedWithCommitStatuses & {
+        lastCommit: GithubCommit & {
+            message: string;
+            statuses: Array<GithubStatus>;
+        };
+    }
+> {
+    return async (branch: Branch) => {
+        const { sha } = branch.commit;
+
+        const lastCommit: GithubCommit & {
+            message: string;
+            date: string;
+        } = await getLastCommit(userName, repoName, sha);
+
+        const statuses: Array<GithubStatus> = await fetchLastCommitStatuses(lastCommit, userName, repoName);
+
+        return {
+            ...branch,
+            lastCommit: {
+                ...lastCommit,
+                statuses,
+            },
+        };
     };
 }
 
@@ -201,43 +249,27 @@ export async function fetchRepoBranchesWithCommitStatuses({
     name: string;
     branches: Awaited<
         Branch & {
-            lastCommit: GithubCommit & {
-                reponame: string;
-                ownerUsername: string;
-            };
+            lastCommit: GithubCommit;
         }
     >[];
 }> {
-    const branches = await fetchRepoBranches(userName, repoName);
-
-    const branchesWithCommitProms = branches.reverse().map(async (branch) => {
-        const { sha } = branch.commit;
-
-        const lastCommit = await getLastCommit(userName, repoName, sha);
-        const statuses = await fetchLastCommitStatuses(lastCommit);
-
-        return {
-            ...branch,
-            lastCommit: {
-                ...lastCommit,
-                statuses,
-            },
-        };
-    });
+    const branches: Branch[] = await fetchRepoBranches(userName, repoName);
 
     return {
         name: repoName,
         owner: { login: userName },
-        branches: await Promise.all(branchesWithCommitProms),
+        branches: await Promise.all(branches.map(createEnrichWithLastCommitAndStats(userName, repoName))),
     };
 }
 
-export async function fetchLastCommitStatuses(commit: {
-    sha?: string | null | undefined;
-    ownerUsername: string;
-    reponame: string;
-}) {
-    const { sha, ownerUsername, reponame } = commit;
+export async function fetchLastCommitStatuses(
+    commit: {
+        sha?: string | null | undefined;
+    },
+    ownerUsername: string,
+    reponame: string
+): Promise<Array<GithubStatus>> {
+    const { sha } = commit;
     if (sha) {
         return await fetchCommitStatuses({
             sha,
@@ -245,5 +277,5 @@ export async function fetchLastCommitStatuses(commit: {
             reponame,
         });
     }
-    return [];
+    return [] as Array<GithubStatus>;
 }

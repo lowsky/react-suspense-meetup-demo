@@ -1,55 +1,81 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Link } from '@chakra-ui/react';
 
 import { PopoverArrow, PopoverBody, PopoverContent, PopoverRoot, PopoverTrigger } from '../ui/popover';
-import { GithubCommit } from 'restinpeace/types';
-import { useUserRepo } from '../useUserRepoFromRoute';
+import { GithubCommit } from '../../restinpeace/types';
+import { Spinner } from '../Spinner';
+
 import { CommitterInfo } from './CommitterInfo';
 import { CommitStatuses } from './CommitStatuses';
-import { Spinner } from '../Spinner';
 
 import styles from './CommitWithStatuses.module.css';
 
-export interface CommitWithStatusesProps {
-    commit?: GithubCommit;
+interface CommitWithStatusesProps {
+    commit: GithubCommit;
 }
 
-const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit = {} }) => {
-    const { userName, repoName } = useUserRepo();
+const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
+    const {
+        author,
+        html_url,
+        authoredDate,
+        message = '-?-',
+        sha,
+        statuses,
+    } = {
+        ...commit,
+        // does not exist in current GithubCommit type object, yet
+        authoredDate: new Date(),
+    };
+    // status } = commit;
 
-    const { author, sha, date = '-?-', message = '-?-', statuses, status } = commit;
+    const firstLineOfMessage = message?.split('\n\n', 1);
 
-    const githubCommit = `https://github.com/${userName}/${repoName}/tree/${sha}`;
-
-    const mainMessage = message?.split('\n\n', 1);
-
+    const authorUser = author;
     return (
         <>
-            <PopoverRoot>
-                <PopoverTrigger>
-                    <Link className={styles.status} href={githubCommit} rel="noopener noreferrer nofollow">
-                        <strong>{mainMessage}</strong>
-                    </Link>
-                </PopoverTrigger>
-                {
-                    // @ts-expect-error snippet type error
-                    <PopoverContent>
-                        <PopoverBody>
-                            <PopoverArrow />
+            {authorUser && (
+                <PopoverRoot>
+                    {
+                        // @ts-expect-error type error in snippet
+                        <PopoverTrigger>
+                            <span>
+                                <strong>{firstLineOfMessage}</strong> &nbsp; more{' '}
+                                {html_url ? (
+                                    <Link className={styles.status} href={html_url} rel="noopener noreferrer nofollow">
+                                        {sha?.slice(0, 7)}
+                                    </Link>
+                                ) : (
+                                    sha?.slice(0, 7)
+                                )}
+                            </span>
+                        </PopoverTrigger>
+                    }
+                    {
+                        // @ts-expect-error snippet type error
+                        <PopoverContent>
                             <PopoverBody>
-                                <div className={styles.status}>
-                                    <i>{date}</i>
-                                    <CommitterInfo author={author} />
-                                </div>
+                                <PopoverArrow />
+                                <PopoverBody>
+                                    <div className={styles.status}>
+                                        <i>{new Date(authoredDate).toLocaleString()}</i>
+                                        <CommitterInfo author={author} />
+                                    </div>
+                                </PopoverBody>
                             </PopoverBody>
-                        </PopoverBody>
-                    </PopoverContent>
-                }
-            </PopoverRoot>
-
-            <Suspense fallback={<Spinner size="lg" />}>
-                <CommitStatuses statuses={status ?? statuses} />
-            </Suspense>
+                        </PopoverContent>
+                    }
+                </PopoverRoot>
+            )}
+            {!authorUser && html_url && (
+                <span>
+                    <strong>{firstLineOfMessage}</strong> &nbsp;
+                    <Link className={styles.status} href={html_url} rel="noopener noreferrer nofollow">
+                        {sha?.slice(0, 7)}
+                    </Link>
+                </span>
+            )}
+            {statuses && <CommitStatuses statuses={statuses} />}
         </>
     );
 };

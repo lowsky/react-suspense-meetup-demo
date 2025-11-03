@@ -19,8 +19,7 @@ export interface BranchInfoRowProps {
 const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
     const { userName, repoName } = useUserRepo();
 
-    const { name, lastCommit } = branch ?? {};
-    const { associatedPullRequests } = lastCommit ?? {};
+    const { name, lastCommit, associatedPullRequests } = branch ?? {};
 
     const githubBranchSrc = `https://github.com/${userName}/${repoName}/tree/${name}`;
 
@@ -50,9 +49,9 @@ const BranchInfoRow: React.FC<BranchInfoRowProps> = ({ branch, sha }) => {
                                 <Spinner size="lg" />
                             </VStack>
                         }>
-                        {associatedPullRequests
-                            ?.filter?.(Boolean)
-                            .map((pr, idx) => <PullRequestInfo key={idx} pullRequest={pr!} />)}
+                        {associatedPullRequests?.filter?.(Boolean).map((pr, idx) => (
+                            <PullRequestInfo key={idx} pullRequest={pr!} />
+                        ))}
                         {!associatedPullRequests && <PullRequestInfo sha={sha} />}
                     </Suspense>
                 )}

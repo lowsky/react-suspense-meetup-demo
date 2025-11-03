@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import NextTopLoader from 'nextjs-toploader';
+import { Flex } from '@chakra-ui/react';
 
-import { Provider } from 'components/ui/provider';
-import ColorModeScriptClient from './ColorModeScriptClient';
+import ChakraUIWrapper from './ChakraUIWrapper';
 import WarningGitHubRateLimiting from './WarningGitHubRateLimiting';
 import LinkToNewApp from './LinkToNewApp';
 import { NavBar } from 'components/NavBar';
@@ -25,13 +26,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="en" className={inter.className} suppressHydrationWarning>
             <body>
                 <noscript>You need to enable JavaScript to run this app.</noscript>
-                <ColorModeScriptClient />
-                <Provider>
+                <NextTopLoader />
+                <ChakraUIWrapper>
                     <NavBar />
                     <LinkToNewApp />
                     <WarningGitHubRateLimiting />
-                    {children}
-                </Provider>
+                    <Flex p={4} direction="column">
+                        {children}
+                    </Flex>
+                </ChakraUIWrapper>
             </body>
         </html>
     );

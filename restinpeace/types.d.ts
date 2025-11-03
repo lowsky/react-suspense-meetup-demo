@@ -2,15 +2,16 @@ export type Maybe<T> = T | null;
 
 export type GithubBranch = {
     lastCommit?: Maybe<GithubCommit>;
+    associatedPullRequests?: Maybe<Array<Maybe<PullRequest>>>;
     name: string;
     ownerUsername?: Maybe<string>;
     reponame?: Maybe<string>;
 };
 
 export type GithubCommit = {
-    associatedPullRequests?: Maybe<Array<Maybe<PullRequest>>>;
     author?: Maybe<UserOrCommitAuthor>;
     date?: Maybe<string>;
+    html_url?: Maybe<string>;
     message?: Maybe<string>;
     sha?: Maybe<string>;
     status?: Maybe<Array<Maybe<GithubStatus>>>;

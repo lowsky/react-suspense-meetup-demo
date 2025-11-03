@@ -1,7 +1,7 @@
 import React from 'react';
-import { Avatar } from './ui/avatar';
+import { Avatar } from 'components/ui/avatar';
 
-import { Heading, Box, Text, HStack } from '@chakra-ui/react';
+import { Heading, Box, Strong, Text, HStack } from '@chakra-ui/react';
 
 export interface UserType {
     avatar_url?: string;
@@ -9,7 +9,7 @@ export interface UserType {
     login?: string;
 }
 
-export interface UserProps {
+interface UserProps {
     user: Readonly<UserType>;
 }
 
@@ -23,8 +23,8 @@ const User: React.FC<UserProps> = ({ user = {} }) => {
             </Heading>
             <Avatar src={avatar_url} size="xl" />
             <Box>
-                <Text>{login ?? '?'}</Text>
-                <i>{company}</i>
+                <Strong>{login ?? '?'}</Strong>
+                <Text>{company}</Text>
             </Box>
         </HStack>
     );

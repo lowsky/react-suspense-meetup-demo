@@ -13,7 +13,7 @@ interface Props {
     repoData: Promise<RepoType>;
 }
 
-// @ts-ignore - not used in production
+// //@ts-expect-error - not used in production
 function delay(timeout) {
     return new Promise((resolve) => {
         setTimeout(resolve, timeout);

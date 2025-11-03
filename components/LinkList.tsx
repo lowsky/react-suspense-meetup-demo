@@ -5,7 +5,7 @@ import { Heading, List } from '@chakra-ui/react';
 
 import InternalLink from './InternalLink';
 
-export function LinkList({ rootPath }) {
+export function LinkList({ rootPath }: { rootPath: string }) {
     const links = [
         'lowsky/react-suspense-meetup-demo',
         'lowsky/gh-dashboard-relay',
@@ -13,11 +13,12 @@ export function LinkList({ rootPath }) {
         'lowsky/spotify-graphql-server-graphql-yoga',
         'lowsky/spotify-graphql-server-graphql-helix-envelop',
         'facebook/react',
+        'add your own, see url schema',
     ];
 
     return (
         <>
-            <Heading size="1">Some example repos:</Heading>
+            <Heading>Some example repos:</Heading>
 
             <List.Root>
                 {links.map((link) => (

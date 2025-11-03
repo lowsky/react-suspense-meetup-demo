@@ -1,9 +1,6 @@
-'use client';
-
 import { Provider } from 'components/ui/provider';
+import { ReactNode } from 'react';
 
-//import { customTheme } from 'components/theme';
-
-export default function ChakraUIWrapper({ children }) {
-    return <Provider>{children}</Provider>;
+export default function ChakraUIWrapper({ children }: { children: ReactNode }) {
+    return <Provider defaultTheme="dark">{children}</Provider>;
 }

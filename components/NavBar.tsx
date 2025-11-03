@@ -1,7 +1,4 @@
-'use client'; // because it uses useParams
-
-import { ReactNode } from 'react';
-import { useParams, usePathname } from 'next/navigation';
+'use client';
 
 import { Box, Center, Collapsible, Flex, Icon, IconButton, Stack, Text, useDisclosure } from '@chakra-ui/react';
 
@@ -9,11 +6,16 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { MdClose } from 'react-icons/md';
 
 import InternalLink from './InternalLink';
-import { useColorModeValue, ColorModeButton } from './ui/color-mode';
+import { DarkLightThemeToggle } from './DarkLightThemeToggle';
+import { useColorModeValue } from './ui/color-mode';
+import { useParams, usePathname } from 'next/navigation';
+import { ReactNode } from 'react';
 
 export function NavBar() {
     const params = useParams();
-    const { userName: owner, repoName: repo } = params ?? {};
+    // @ts-expect-error userName and repoName not part of params
+    const { userName: owner, repoName: repo } = params;
+
     const { open, onToggle } = useDisclosure();
 
     const backgroundColor = useColorModeValue('white', 'gray.400');
@@ -52,9 +54,12 @@ export function NavBar() {
                 </Flex>
             </Flex>
             <Collapsible.Root open={open}>
-                <Collapsible.Content>
-                    <MobileNav owner={owner} repo={repo} />
-                </Collapsible.Content>
+                {
+                    // @ts-expect-error type error in snippet
+                    <Collapsible.Content>
+                        <MobileNav owner={owner} repo={repo} />
+                    </Collapsible.Content>
+                }
             </Collapsible.Root>
         </Box>
     );
@@ -75,7 +80,7 @@ const DesktopNav = ({ owner, repo }) => {
                     {label}
                 </InternalLink>
             ))}
-            <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
+            <InternalLink href="https://www.github.com/lowsky/react-suspense-meetup-demo',">GitHub/Repo</InternalLink>
         </Stack>
     );
 };
@@ -92,7 +97,7 @@ const MobileNav = ({ owner, repo }) => (
         {getNavItemsForRepo(owner, repo).map(({ href, label }) => (
             <MobileNavItem key={href} label={label} href={href} />
         ))}
-        <InternalLink href="https://www.github.com/lowsky/gh-dashboard-relay">GitHub/Repo</InternalLink>
+        <InternalLink href="https://www.github.com/lowsky/react-suspense-meetup-demo',">GitHub/Repo</InternalLink>
         <DarkLightThemeToggle />
     </Stack>
 );
@@ -146,20 +151,4 @@ function getNavItemsForRepo(owner, repo): NavItem[] {
         ];
 
     return [];
-}
-
-function DarkLightThemeToggle() {
-    const backgroundColor = useColorModeValue('white', 'gray.800');
-
-    return (
-        <Box bg={backgroundColor} px={4}>
-            <Flex h={8} alignItems="center" justifyContent="space-between">
-                <Flex alignItems="center">
-                    <Stack direction="row">
-                        <ColorModeButton />
-                    </Stack>
-                </Flex>
-            </Flex>
-        </Box>
-    );
 }
