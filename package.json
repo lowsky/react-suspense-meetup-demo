@@ -47,7 +47,7 @@
     "@fortawesome/fontawesome-svg-core": "7.1.0",
     "@fortawesome/free-brands-svg-icons": "7.1.0",
     "@fortawesome/free-solid-svg-icons": "7.1.0",
-    "@fortawesome/react-fontawesome": "3.1.0",
+    "@fortawesome/react-fontawesome": "3.1.1",
     "@next/eslint-plugin-next": "^16.0.0",
     "@octokit/types": "16.0.0",
     "@types/node": "24.10.1",
