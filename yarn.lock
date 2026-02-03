@@ -359,9 +359,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@chakra-ui/react@npm:3.31.0":
-  version: 3.31.0
-  resolution: "@chakra-ui/react@npm:3.31.0"
+"@chakra-ui/react@npm:3.32.0":
+  version: 3.32.0
+  resolution: "@chakra-ui/react@npm:3.32.0"
   dependencies:
     "@ark-ui/react": "npm:^5.29.1"
     "@emotion/is-prop-valid": "npm:^1.4.0"
@@ -374,7 +374,7 @@ __metadata:
     "@emotion/react": ">=11"
     react: ">=18"
     react-dom: ">=18"
-  checksum: 10c0/fccc8ee864e0b9feccf8c3c2f8d20d40df82e3a119f040bc7cb28c35567b21fc4873933469bf66315a48b9531e0305b9c2b8f59214c13c50eb5c14b30bb730e6
+  checksum: 10c0/2ba7fed3ad04becc9fda39877ce86f643238575aa5db48b55494ab52d904b146aa1aa013bc51830d15b51b13eba1b094bd60ab0a9de2e826f831f4d5bec45145
   languageName: node
   linkType: hard
 
@@ -7425,7 +7425,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react-suspense-meetup-demo@workspace:."
   dependencies:
-    "@chakra-ui/react": "npm:3.31.0"
+    "@chakra-ui/react": "npm:3.32.0"
     "@emotion/react": "npm:11.14.0"
     "@eslint/compat": "npm:2.0.2"
     "@eslint/js": "npm:10.0.1"
