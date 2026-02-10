@@ -44,9 +44,9 @@
   "devDependencies": {
     "@eslint/compat": "2.0.2",
     "@eslint/js": "10.0.1",
-    "@fortawesome/fontawesome-svg-core": "7.1.0",
-    "@fortawesome/free-brands-svg-icons": "7.1.0",
-    "@fortawesome/free-solid-svg-icons": "7.1.0",
+    "@fortawesome/fontawesome-svg-core": "7.2.0",
+    "@fortawesome/free-brands-svg-icons": "7.2.0",
+    "@fortawesome/free-solid-svg-icons": "7.2.0",
     "@fortawesome/react-fontawesome": "3.2.0",
     "@next/eslint-plugin-next": "^16.0.0",
     "@octokit/types": "16.0.0",
