@@ -50,7 +50,7 @@
     "@fortawesome/react-fontawesome": "3.2.0",
     "@next/eslint-plugin-next": "^16.0.0",
     "@octokit/types": "16.0.0",
-    "@types/node": "24.10.12",
+    "@types/node": "24.10.13",
     "@types/react": "19.2.10",
     "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "8.54.0",
