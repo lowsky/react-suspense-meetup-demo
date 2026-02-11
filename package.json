@@ -28,7 +28,7 @@
   },
   "private": true,
   "dependencies": {
-    "@chakra-ui/react": "3.32.0",
+    "@chakra-ui/react": "3.33.0",
     "@emotion/react": "11.14.0",
     "@mdx-js/loader": "3.1.1",
     "@mdx-js/react": "3.1.1",
