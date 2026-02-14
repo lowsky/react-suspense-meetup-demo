@@ -51,7 +51,7 @@
     "@next/eslint-plugin-next": "^16.0.0",
     "@octokit/types": "16.0.0",
     "@types/node": "24.10.13",
-    "@types/react": "19.2.10",
+    "@types/react": "19.2.14",
     "@types/react-dom": "19.2.3",
     "@typescript-eslint/eslint-plugin": "8.55.0",
     "eslint": "10.0.0",
