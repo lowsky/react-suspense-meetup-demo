@@ -1,5 +1,5 @@
 'use client';
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 import { ContentLoadingFallback } from 'components/ContentLoadingFallback';
 import InternalLink from 'components/InternalLink';

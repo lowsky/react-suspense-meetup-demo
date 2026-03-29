@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, use } from 'react';
+import { Suspense, use } from 'react';
 import { Center, Heading, HStack } from '@chakra-ui/react';
 
 import { Spinner } from 'components/Spinner';

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 
 import InternalLink from 'components/InternalLink';
 import RichErrorBoundary from 'components/RichErrorBoundary';

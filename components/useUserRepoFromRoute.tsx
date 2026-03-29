@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Context, createContext, ReactNode, useContext } from 'react';
+import { Context, createContext, ReactNode, useContext } from 'react';
 import { useParams } from 'next/navigation';
 
 const UserRepoContext: Context<{

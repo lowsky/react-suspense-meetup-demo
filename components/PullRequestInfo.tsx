@@ -1,5 +1,4 @@
 'use client';
-import React from 'react';
 import { Link, VStack } from '@chakra-ui/react';
 
 import { Maybe } from 'restinpeace/types';

@@ -13,7 +13,6 @@ import { ReactNode } from 'react';
 
 export function NavBar() {
     const params = useParams();
-    // @ts-expect-error userName and repoName not part of params
     const { userName: owner, repoName: repo } = params;
 
     const { open, onToggle } = useDisclosure();
@@ -54,12 +53,9 @@ export function NavBar() {
                 </Flex>
             </Flex>
             <Collapsible.Root open={open}>
-                {
-                    // @ts-expect-error type error in snippet
-                    <Collapsible.Content>
-                        <MobileNav owner={owner} repo={repo} />
-                    </Collapsible.Content>
-                }
+                <Collapsible.Content>
+                    <MobileNav owner={owner} repo={repo} />
+                </Collapsible.Content>
             </Collapsible.Root>
         </Box>
     );
@@ -124,7 +120,7 @@ interface NavItem {
     href?: string;
 }
 
-function getNavItemsForRepo(owner, repo): NavItem[] {
+function getNavItemsForRepo(owner: string, repo: string): NavItem[] {
     const ownerRepo = owner + '/' + repo;
     if (owner && repo)
         return [

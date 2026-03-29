@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense, use, useEffect, useState } from 'react';
+import { Suspense, use, useEffect, useState } from 'react';
 
 import { Branches, fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
 import InternalLink from 'components/InternalLink';

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import InternalLink from '../components/InternalLink';
 import { Alert } from '../components/ui/alert';
 

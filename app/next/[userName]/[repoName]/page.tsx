@@ -1,6 +1,6 @@
 // do not add 'use client' here, because it is using React cache, and the async data loading works only on the server side
 
-import React, { cache } from 'react';
+import { cache } from 'react';
 
 import { fetchRepoBranchesWithCommitStatusesAndPullRequests, fetchUser, User } from 'restinpeace/github';
 

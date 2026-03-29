@@ -1,6 +1,6 @@
 'use client';
 
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import { Flex } from '@chakra-ui/react';
 
 import RichErrorBoundary from 'components/RichErrorBoundary';

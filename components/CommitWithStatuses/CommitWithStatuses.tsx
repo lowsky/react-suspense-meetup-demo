@@ -36,35 +36,29 @@ const CommitWithStatuses: React.FC<CommitWithStatusesProps> = ({ commit }) => {
         <>
             {authorUser && (
                 <PopoverRoot>
-                    {
-                        // @ts-expect-error type error in snippet
-                        <PopoverTrigger>
-                            <span>
-                                <strong>{firstLineOfMessage}</strong> &nbsp; more{' '}
-                                {html_url ? (
-                                    <Link className={styles.status} href={html_url} rel="noopener noreferrer nofollow">
-                                        {sha?.slice(0, 7)}
-                                    </Link>
-                                ) : (
-                                    sha?.slice(0, 7)
-                                )}
-                            </span>
-                        </PopoverTrigger>
-                    }
-                    {
-                        // @ts-expect-error snippet type error
-                        <PopoverContent>
+                    <PopoverTrigger>
+                        <span>
+                            <strong>{firstLineOfMessage}</strong> &nbsp; more{' '}
+                            {html_url ? (
+                                <Link className={styles.status} href={html_url} rel="noopener noreferrer nofollow">
+                                    {sha?.slice(0, 7)}
+                                </Link>
+                            ) : (
+                                sha?.slice(0, 7)
+                            )}
+                        </span>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                        <PopoverBody>
+                            <PopoverArrow />
                             <PopoverBody>
-                                <PopoverArrow />
-                                <PopoverBody>
-                                    <div className={styles.status}>
-                                        <i>{new Date(authoredDate).toLocaleString()}</i>
-                                        <CommitterInfo author={author} />
-                                    </div>
-                                </PopoverBody>
+                                <div className={styles.status}>
+                                    <i>{new Date(authoredDate).toLocaleString()}</i>
+                                    <CommitterInfo author={author} />
+                                </div>
                             </PopoverBody>
-                        </PopoverContent>
-                    }
+                        </PopoverBody>
+                    </PopoverContent>
                 </PopoverRoot>
             )}
             {!authorUser && html_url && (

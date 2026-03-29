@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { Alert } from '../components/ui/alert';
 
 export default function WarningGitHubRateLimiting() {
