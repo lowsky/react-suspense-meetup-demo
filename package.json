@@ -61,7 +61,7 @@
     "eslint-plugin-react-hooks": "7.0.1",
     "globals": "17.4.0",
     "nextjs-toploader": "3.9.17",
-    "prettier": "3.8.1",
+    "prettier": "3.8.3",
     "react": "next",
     "react-dom": "next",
     "typescript": "6.0.3",
