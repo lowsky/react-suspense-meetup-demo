@@ -1701,12 +1701,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/node@npm:24.13.3":
-  version: 24.13.3
-  resolution: "@types/node@npm:24.13.3"
+"@types/node@npm:24.13.4":
+  version: 24.13.4
+  resolution: "@types/node@npm:24.13.4"
   dependencies:
     undici-types: "npm:~7.18.0"
-  checksum: 10c0/a5bc08f49b9581dcdca90e02cd77197a3c799840807664942e5cd5161a553d4d2ae8064f7e3294410d748d7d098b5c1848be7fa50c06f29c4193ab16be4e59eb
+  checksum: 10c0/a12196e984cb09ead549651217b4b395961ea011f3a3791a9f78311d70b5f3be343c6fc935376553c06a34c14d963d4f637ad7829837b0c88cf441919f422893
   languageName: node
   linkType: hard
 
@@ -7674,12 +7674,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:3.9.6":
-  version: 3.9.6
-  resolution: "prettier@npm:3.9.6"
+"prettier@npm:3.9.9":
+  version: 3.9.9
+  resolution: "prettier@npm:3.9.9"
   bin:
     prettier: bin/prettier.cjs
-  checksum: 10c0/9f7ddae234035868f3daab3dc34e6de7e54622185afb017378029f0c09a9c023248ccf6f34def0b17a0538e18c47aa1b3188bab72965d1bf735919baa0747e99
+  checksum: 10c0/d50ea2537b2ff7dbd5088a214f4d936484e55c665cea2185b477a55b0770be55f3b156a71f63a9a639def6b334667bb327139dc85f2a1041c0a34752cdc74647
   languageName: node
   linkType: hard
 
@@ -7823,7 +7823,7 @@ __metadata:
     "@next/mdx": "npm:16.3.4"
     "@octokit/rest": "npm:22.0.1"
     "@octokit/types": "npm:18.0.0"
-    "@types/node": "npm:24.13.3"
+    "@types/node": "npm:24.13.4"
     "@types/react": "npm:19.2.18"
     "@types/react-dom": "npm:19.2.7"
     "@typescript-eslint/eslint-plugin": "npm:8.70.0"
@@ -7837,7 +7837,7 @@ __metadata:
     next: "npm:16.3.4"
     next-themes: "npm:^0.4.3"
     nextjs-toploader: "npm:3.9.17"
-    prettier: "npm:3.9.6"
+    prettier: "npm:3.9.9"
     react: "npm:next"
     react-cache: "npm:latest"
     react-dom: "npm:next"
