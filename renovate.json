@@ -1,5 +1,4 @@
 {
   "ignoreDeps": ["^@types"],
-  "supportPolicy": ["lts_latest"],
-  "extends": ["docker:disable", "config:base"]
+  "extends": ["docker:disable", "config:recommended"]
 }
